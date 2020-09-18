@@ -1,5 +1,12 @@
+<?php
+    require_once 'admin/inc/functions/config.php';
+    $news = fetchAllDesc("news", "id", 0, 10);
+
+?>
+
 <?php $page_title = "Home || Modern Nur/Pri Sch.";
 require_once 'inc/header.php'; ?>
+
 <div class="banner-wrapper">
     <section class="banner-one banner-carousel__one no-dots owl-theme owl-carousel">
         <div class="banner-one__slide banner-one__slide-one">
@@ -272,6 +279,7 @@ require_once 'inc/header.php'; ?>
                 & articles</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
         <div class="blog-two__carousel owl-carousel owl-theme">
+            
             <div class="item">
                 <div class="blog-two__single" style="background-image: url(assets/images/main/img3.jpeg); background-position: center; background-size: cover;">
                     <div class="blog-two__inner">
