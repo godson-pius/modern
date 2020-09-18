@@ -84,7 +84,7 @@ function AddNews($post) {
     $posted_by = $_SESSION['adminId'];
 
     if (!$errors) {
-        $sql = "INSERT INTO news (title, body, image, post_by, date_posted) VALUES ('$title', '$description', '$image', '$posted_by', now())";
+        $sql = "INSERT INTO news (title, body, image_url, post_by, date_posted) VALUES ('$title', '$description', '$image', '$posted_by', now())";
 
         $result = validateQuery($sql);
         if ($result) {

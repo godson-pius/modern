@@ -284,7 +284,7 @@ require_once 'inc/header.php'; ?>
                 foreach ($news as $new) {
                     extract($new); ?>
                     <div class="item">
-                        <div class="blog-two__single" style="background-image: url(assets/images/main/img3.jpeg); background-position: center; background-size: cover;">
+                        <div class="blog-two__single" style="background-image: url(assets/images/news/<?= $image_url; ?>); background-position: center; background-size: cover;">
                             <div class="blog-two__inner">
                                 <a href="news-details.html" class="blog-two__date">
                                     <span><?= date("d", strtotime($date_posted)); ?></span>
