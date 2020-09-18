@@ -1,7 +1,7 @@
 <?php
 require_once 'admin/inc/functions/config.php';
 $news = fetchAllDesc("news", "id", 0, 10);
-
+$subjects = fetchAllDesc("subjects");
 ?>
 
 <?php $page_title = "Home || Modern Nur/Pri Sch.";
@@ -122,37 +122,45 @@ require_once 'inc/header.php'; ?>
 <section class="course-one course-one__teacher-details home-one">
     <div class="container">
         <div class="course-one__carousel owl-carousel owl-theme">
-            <div class="item">
-                <div class="course-one__single color-1">
-                    <div class="course-one__image">
-                        <!--<img src="assets/images/course-1-1.jpg" alt="">-->
-                        <div style="width: 370px; height: 243px; background-image: url('assets/images/patter-1-1.jpg'); background-position: center; background-size: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
-                        <i class="far fa-heart"></i><!-- /.far fa-heart -->
-                    </div><!-- /.course-one__image -->
-                    <div class="course-one__content">
-                        <a href="#" class="course-one__category">calculations</a><!-- /.course-one__category -->
-                        <div class="course-one__admin">
-                            <img src="assets/images/team-1-1.jpg" alt="">
-                            by <a href="teacher-details.html">Mrs. Jane</a>
-                        </div><!-- /.course-one__admin -->
-                        <h2 class="course-one__title"><a href="course-details.html">Mathematics</a></h2>
-                        <!-- /.course-one__title -->
-                        <div class="course-one__stars">
-                            <span class="course-one__stars-wrap">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span><!-- /.course-one__stars-wrap -->
-                            <span class="course-one__count"></span><!-- /.course-one__count -->
-                            <span class="course-one__stars-count">100%</span><!-- /.course-one__stars-count -->
-                        </div><!-- /.course-one__stars -->
-                        <a href="#" class="course-one__link">See Preview</a><!-- /.course-one__link -->
-                    </div><!-- /.course-one__content -->
-                </div><!-- /.course-one__single -->
-            </div><!-- /.item -->
-
+            <?php
+                if (!empty($subjects)) {
+                    foreach ($subjects as $subject) {
+                        extract($subject);
+                        
+                        $subject_teachers = where("teachers", "id", $subject_teacher_fk);
+                        if (!empty($subject_teachers)) {
+                            foreach ($subject_teachers as $subject_teacher) {
+                        ?>
+                        <div class="item">
+                            <div class="course-one__single color-1">
+                                <div class="course-one__image">
+                                    <!--<img src="assets/images/course-1-1.jpg" alt="">-->
+                                    <div style="width: 370px; height: 243px; background-image: url('assets/images/patter-1-1.jpg'); background-position: center; background-size: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+                                    <i class="far fa-heart"></i><!-- /.far fa-heart -->
+                                </div><!-- /.course-one__image -->
+                                <div class="course-one__content">
+                                    <a href="#" class="course-one__category">calculations</a><!-- /.course-one__category -->
+                                    <div class="course-one__admin">
+                                        <img src="assets/images/team-1-1.jpg" alt="">
+                                        by <a href="teacher-details.html"><?= $subject_teacher['name']; ?></a>
+                                    </div><!-- /.course-one__admin -->
+                                    <h2 class="course-one__title"><a href="course-details.html"><?= $subject_name; ?></a></h2>
+                                    <!-- /.course-one__title -->
+                                    <div class="course-one__stars">
+                                        <span class="course-one__stars-wrap">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span><!-- /.course-one__stars-wrap -->
+                                        <span class="course-one__count"></span><!-- /.course-one__count -->
+                                        <span class="course-one__stars-count">100%</span><!-- /.course-one__stars-count -->
+                                    </div><!-- /.course-one__stars -->
+                                </div><!-- /.course-one__content -->
+                            </div><!-- /.course-one__single -->
+                        </div><!-- /.item -->
+                <?php } } } } ?>
 
         </div><!-- /.course-one__carousel -->
     </div><!-- /.container -->
@@ -216,9 +224,10 @@ require_once 'inc/header.php'; ?>
     <div class="container-fluid text-center">
         <div class="block-title text-center">
             <h2 class="block-title__title">Browse our <br>
-                subjects categories</h2><!-- /.block-title__title -->
+                subjects</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
         <div class="course-category-one__carousel owl-carousel owl-theme">
+
             <div class="item">
                 <div class="course-category-one__single color-1">
                     <div class="course-category-one__icon">

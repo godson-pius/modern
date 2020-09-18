@@ -97,6 +97,55 @@ function AddNews($post) {
     }
 }
 
+// Function for adding teachers
+function AddTeachers($post)
+{
+    extract($post);
+    $errors = [];
+
+    if (!empty($title)) {
+        $tmp_title = sanitize($title);
+        if (!check_duplicate("news", "title", $tmp_title)) {
+            $tmp_title2 = $tmp_title;
+            $title = str_replace("'", "&apos;", $tmp_title2);
+        } else {
+            $errors[] = "This news already exists" . "<br>";
+        }
+    } else {
+        $errors[] = "News Title is empty" . "<br>";
+    }
+
+    if (isset($_FILES['image'])) {
+        $image = sanitize($_FILES['image']['name']);
+        $tmp_image = $_FILES['image']['tmp_name'];
+        move_uploaded_file($tmp_image, "../assets/images/news/$image");
+    } else {
+        $errors[] = "News Image is empty" . "<br>";
+    }
+
+    if (!empty($body)) {
+        $tmp_description = $body;
+        $description = str_replace("'", "&apos;", $tmp_description);
+    } else {
+        $errors[] = "News Description is empty" . "<br>";
+    }
+
+    $posted_by = $_SESSION['adminId'];
+
+    if (!$errors) {
+        $sql = "INSERT INTO news (title, body, image_url, post_by, date_posted) VALUES ('$title', '$description', '$image', '$posted_by', now())";
+
+        $result = validateQuery($sql);
+        if ($result) {
+            return true;
+        } else {
+            $errors[] = "Operation Failed! Try Again" . "<br>";
+        }
+    } else {
+        return $errors;
+    }
+}
+
 function editBook($post, $id) {
     extract($post);
     $errors = [];
