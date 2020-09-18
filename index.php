@@ -1,6 +1,6 @@
 <?php
-    require_once 'admin/inc/functions/config.php';
-    $news = fetchAllDesc("news", "id", 0, 10);
+require_once 'admin/inc/functions/config.php';
+$news = fetchAllDesc("news", "id", 0, 10);
 
 ?>
 
@@ -71,7 +71,7 @@ require_once 'inc/header.php'; ?>
                         <h1 class="text-dark">Welcome to modern <br>
                             Nursery & Primary School</h1><!-- /.block-title__title -->
                     </div><!-- /.block-title -->
-                    <p class="about-two__text">Modern Nursery/Primary School is located at No. 7  Iji / Chukwume Street off St. Mary's Maternity  Hospital Abakpa in Enugu East Local  Government Area, Enugu State.</p><!-- /.about-two__text -->
+                    <p class="about-two__text">Modern Nursery/Primary School is located at No. 7 Iji / Chukwume Street off St. Mary's Maternity Hospital Abakpa in Enugu East Local Government Area, Enugu State.</p><!-- /.about-two__text -->
                     <div class="about-two__single-wrap">
                         <div class="about-two__single">
                             <div class="about-two__single-icon">
@@ -152,8 +152,8 @@ require_once 'inc/header.php'; ?>
                     </div><!-- /.course-one__content -->
                 </div><!-- /.course-one__single -->
             </div><!-- /.item -->
-            
-        
+
+
         </div><!-- /.course-one__carousel -->
     </div><!-- /.container -->
 </section><!-- /.course-one course-page -->
@@ -228,7 +228,7 @@ require_once 'inc/header.php'; ?>
                     <!-- /.course-category-one__title -->
                 </div><!-- /.course-category-one__single -->
             </div><!-- /.item -->
-           
+
         </div><!-- /.course-category-one__carousel owl-carousel owl-theme -->
 
         <a href="#" class="thm-btn">View All Categories</a><!-- /.thm-btn -->
@@ -279,26 +279,29 @@ require_once 'inc/header.php'; ?>
                 & articles</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
         <div class="blog-two__carousel owl-carousel owl-theme">
-            
-            <div class="item">
-                <div class="blog-two__single" style="background-image: url(assets/images/main/img3.jpeg); background-position: center; background-size: cover;">
-                    <div class="blog-two__inner">
-                        <a href="news-details.html" class="blog-two__date">
-                            <span>25</span>
-                            Jul
-                        </a><!-- /.blog-two__date -->
-                        <div class="blog-two__meta">
-                            <a href="#">by Admin</a>
-                            <a href="#">3 Comments</a>
-                        </div><!-- /.blog-two__meta -->
-                        <h3 class="blog-two__title">
-                            <a href="news-details.html">High school journalism camp</a>
-                        </h3><!-- /.blog-two__title -->
-                    </div><!-- /.blog-two__inner -->
-                </div><!-- /.blog-two__single -->
-            </div><!-- /.item -->
-           
-          
+            <?php
+            if (!empty($news)) {
+                foreach ($news as $new) {
+                    extract($new); ?>
+                    <div class="item">
+                        <div class="blog-two__single" style="background-image: url(assets/images/main/img3.jpeg); background-position: center; background-size: cover;">
+                            <div class="blog-two__inner">
+                                <a href="news-details.html" class="blog-two__date">
+                                    <span><?= date("d", strtotime($date_posted)); ?></span>
+                                    <?= date("M", strtotime($date_posted)); ?>
+                                </a><!-- /.blog-two__date -->
+                                <div class="blog-two__meta">
+                                    <a href="#">by Admin</a>
+                                </div><!-- /.blog-two__meta -->
+                                <h3 class="blog-two__title">
+                                    <a href="news-details.html"><?= $title; ?></a>
+                                </h3><!-- /.blog-two__title -->
+                            </div><!-- /.blog-two__inner -->
+                        </div><!-- /.blog-two__single -->
+                    </div><!-- /.item -->
+            <?php }
+            } ?>
+
         </div><!-- /.blog-two__carousel owl-carousel owl-theme -->
     </div><!-- /.container -->
 </section><!-- /.blog-one blog-page -->
