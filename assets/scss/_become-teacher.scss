@@ -59,8 +59,8 @@
         outline: none;
         width: 100%;
         background-color: $thm-gray;
-        height: 77px;
-        font-size: 16px;
+        height: 38px;
+        font-size: 12px;
         color: $thm-text-color;
         font-weight: 500;
         padding-left: 40px;
@@ -69,6 +69,7 @@
 
         @include placeholder() {
             color: $thm-text-color;
+            font-family: roboto;
         }
     }
 

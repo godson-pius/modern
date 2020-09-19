@@ -220,29 +220,7 @@ require_once 'inc/header.php'; ?>
         </div><!-- /.row -->
     </div><!-- /.container -->
 </section><!-- /.countdown-one -->
-<section class="thm-gray-bg course-category-one">
-    <div class="container-fluid text-center">
-        <div class="block-title text-center">
-            <h2 class="block-title__title">Browse our <br>
-                subjects</h2><!-- /.block-title__title -->
-        </div><!-- /.block-title -->
-        <div class="course-category-one__carousel owl-carousel owl-theme">
 
-            <div class="item">
-                <div class="course-category-one__single color-1">
-                    <div class="course-category-one__icon">
-                        <i class="kipso-icon-desktop"></i><!-- /.kipso-icon-camera -->
-                    </div><!-- /.course-category-one__icon -->
-                    <h3 class="course-category-one__title"><a href="#">IT & Software</a></h3>
-                    <!-- /.course-category-one__title -->
-                </div><!-- /.course-category-one__single -->
-            </div><!-- /.item -->
-
-        </div><!-- /.course-category-one__carousel owl-carousel owl-theme -->
-
-        <a href="#" class="thm-btn">View All Categories</a><!-- /.thm-btn -->
-    </div><!-- /.container-fluid -->
-</section><!-- /.thm-gray-bg course-category-one -->
 <section class="cta-three">
     <div class="container">
         <div class="row">

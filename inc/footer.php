@@ -52,7 +52,7 @@
                 <div class="col-xl-3 col-lg-6 col-sm-12">
                     <div class="footer-widget footer-widget__about">
                         <h2 class="footer-widget__title">About</h2><!-- /.footer-widget__title -->
-                        <p class="footer-widget__text">The Modern Nursery  School was established in 1984 as a private educational institution  at No. 7 Ok I street now  No.7 Chukwume  street, Abakpa Nike.  The Enugu State Ministry of Education approved the school to open for nursery classes in September 1985.</p><!-- /.footer-widget__text -->
+                        <p class="footer-widget__text">The Modern Nursery School was established in 1984 as a private educational institution at No. 7 Ok I street now No.7 Chukwume street, Abakpa Nike. The Enugu State Ministry of Education approved the school to open for nursery classes in September 1985.</p><!-- /.footer-widget__text -->
                         <div class="footer-widget__btn-block">
                             <a href="#" class="thm-btn">Contact</a><!-- /.thm-btn -->
                             <a href="#" class="thm-btn">Purchase</a><!-- /.thm-btn -->
@@ -102,6 +102,9 @@
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/countdown.min.js"></script>
 <script src="assets/js/vegas.min.js"></script>
+
+<!-- Local Government Scripts -->
+<script src="assets/js/lga.min.js"></script>
 
 <!-- template scripts -->
 <script src="assets/js/theme.js"></script>

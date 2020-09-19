@@ -70,19 +70,19 @@
                             <li>
                                 <a href="about">About Us</a>
                                 <ul class="sub-menu">
+                                    <li><a href="about">About MNPS</a></li>
                                     <li><a href="gallery">Gallery</a></li>
-                                    <li><a href="#">Pricing Plans</a></li>
                                     <li><a href="#">FAQ'S</a></li>
                                 </ul><!-- /.sub-menu -->
                             </li>
                             <li>
-                                <a href="courses.html">Courses</a>
+                                <a href="#">Courses</a>
                             </li>
                             <li>
                                 <a href="teachers.html">Teachers</a>
                                 <ul class="sub-menu">
                                     <li><a href="teachers.html">Teachers</a></li>
-                                    <li><a href="become-teacher.html">Become Teacher</a></li>
+                                    <li><a href="teacher-optin">Opt In</a></li>
                                 </ul><!-- /.sub-menu -->
                             </li>
                             <li>

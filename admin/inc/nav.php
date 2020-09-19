@@ -55,7 +55,7 @@ if (isset($_POST['submit-news'])) {
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal3">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">email</i>
-                            <span class="sidebar-menu-text">Add Teachers</span>
+                            <span class="sidebar-menu-text">Add Class</span>
                         </a>
                     </li>
                     <li class="sidebar-menu-item">
@@ -152,28 +152,24 @@ if (isset($_POST['submit-news'])) {
     </div>
 </div>
 
-<!-- Modal for teachers -->
+<!-- Modal for class -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog shadow" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Teacher</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Class</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                <form action="" method="POST">
+                    
                     <div class="form-group">
-                        <label for="news-title">Title</label>
-                        <input type="text" class="form-control" id="news-title" placeholder="Enter news title">
-                        <small id="emailHelp" class="form-text text-muted">The title that will be displayed.</small>
+                        <label for="cname">Class</label>
+                        <input type="text" class="form-control" id="cname" placeholder="Enter Class Name">
                     </div>
-                    <div class="form-group">
-                        <label for="body">News Content</label>
-                        <textarea name="" class="form-control" id="body" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores asperiores itaque in laborum sapiente, ducimus libero voluptates iure a dolore maxime, accusamus dolorem corporis, impedit dolor labore repellendus. Quae, nisi."></textarea>
-                    </div>
-                    <input type="submit" name="submit-teachers" class="btn btn-primary" value="SUBMIT">
+                    <button type="submit" name="submit-class" class="btn btn-primary">Add Class</button>
                 </form>
             </div>
             <div class="modal-footer">
