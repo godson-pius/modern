@@ -1,5 +1,7 @@
 <?php $page_title = "About || Modern Nur/Pri Sch.";
-require_once 'inc/header.php'; ?>
+require_once 'inc/header.php';
+
+?>
 
         <section class="inner-banner">
             <div class="container">

@@ -60,10 +60,10 @@ function AddNews($post) {
             $tmp_title2 = $tmp_title;
             $title = str_replace("'", "&apos;", $tmp_title2);
         } else {
-            $errors[] = "This news already exists" . "<br>";
+            $errors[] = "This news already exists";
         }
     } else {
-        $errors[] = "News Title is empty" . "<br>";
+        $errors[] = "News Title is empty";
     }
 
     if (isset($_FILES['image'])) {
@@ -71,14 +71,14 @@ function AddNews($post) {
         $tmp_image = $_FILES['image']['tmp_name'];
         move_uploaded_file($tmp_image, "../assets/images/news/$image");
     } else {
-        $errors[] = "News Image is empty" . "<br>";
+        $errors[] = "News Image is empty";
     }
 
     if (!empty($body)) {
         $tmp_description = $body;
         $description = str_replace("'", "&apos;", $tmp_description);
     } else {
-        $errors[] = "News Description is empty" . "<br>";
+        $errors[] = "News Description is empty";
     }
 
     $posted_by = $_SESSION['adminId'];
@@ -90,7 +90,7 @@ function AddNews($post) {
         if ($result) {
             return true;
         } else {
-            $errors[] = "Operation Failed! Try Again" . "<br>";
+            $errors[] = "Operation Failed! Try Again";
         }
     } else {
         return $errors;
@@ -105,18 +105,18 @@ function AddClass($post)
 
     if (!empty($cname)) {
         $tmp_cname = sanitize($cname);
-        if (!check_duplicate("classes", "cname", $tmp_cname)) {
+        if (!check_duplicate("classes", "class", $tmp_cname)) {
             $tmp_cname2 = $tmp_cname;
             $cname = str_replace("'", "&apos;", $tmp_cname2);
         } else {
-            $errors[] = "This class already exists" . "<br>";
+            $errors[] = "This class already exists";
         }
     } else {
-        $errors[] = "Class name is empty" . "<br>";
+        $errors[] = "Class name is empty";
     }
 
     if (!$errors) {
-        $sql = "INSERT INTO classes (cname, body, image_url, post_by, date_posted) VALUES ('$title', '$description', '$image', '$posted_by', now())";
+        $sql = "INSERT INTO classes (class, date_added) VALUES ('$cname', now())";
 
         $result = validateQuery($sql);
         if ($result) {
@@ -128,6 +128,38 @@ function AddClass($post)
         return $errors;
     }
 }
+
+function AddAcadYear($post)
+{
+    extract($post);
+    $errors = [];
+
+    if (!empty($acad)) {
+        $tmp_acad = sanitize($acad);
+        if (!check_duplicate("academic_years", "academic_year", $tmp_acad)) {
+            $tmp_acad2 = $tmp_acad;
+            $acad = str_replace("'", "&apos;", $tmp_acad2);
+        } else {
+            $errors[] = "This year already exists";
+        }
+    } else {
+        $errors[] = "Academic year is empty";
+    }
+
+    if (!$errors) {
+        $sql = "INSERT INTO academic_years (academic_year, date_added) VALUES ('$acad', now())";
+
+        $result = validateQuery($sql);
+        if ($result) {
+            return true;
+        } else {
+            $errors[] = "Operation Failed! Try Again" . "<br>";
+        }
+    } else {
+        return $errors;
+    }
+} 
+// end of acad
 
 function editBook($post, $id) {
     extract($post);

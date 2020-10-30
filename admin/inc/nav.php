@@ -4,7 +4,34 @@ if (isset($_POST['submit-news'])) {
     if ($response === true) {
         echo "<script>alert('News Published')</script>";
     } else {
-        echo "<script>alert('Failed to publish news')</script>";
+        $errors = $response;
+        foreach ($errors as $err) {
+            echo "<script>alert('$err')</script>";
+        }
+    }
+}
+
+if (isset($_POST['submit-class'])) {
+    $response = AddClass($_POST);
+    if ($response === true) {
+        echo "<script>alert('Class Added')</script>";
+    } else {
+        $errors = $response;
+        foreach ($errors as $err) {
+            echo "<script>alert('$err')</script>";
+        }
+    }
+}
+
+if (isset($_POST['submit-acad'])) {
+    $response = AddAcadYear($_POST);
+    if ($response === true) {
+        echo "<script>alert('Academic Year Added')</script>";
+    } else {
+        $errors = $response;
+        foreach ($errors as $err) {
+            echo "<script>alert('$err')</script>";
+        }
     }
 }
 ?>
@@ -56,6 +83,12 @@ if (isset($_POST['submit-news'])) {
                         <a class="sidebar-menu-button" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal3">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">email</i>
                             <span class="sidebar-menu-text">Add Class</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal4">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">email</i>
+                            <span class="sidebar-menu-text">Add New Academic Year</span>
                         </a>
                     </li>
                     <li class="sidebar-menu-item">
@@ -164,12 +197,37 @@ if (isset($_POST['submit-news'])) {
             </div>
             <div class="modal-body">
                 <form action="" method="POST">
-                    
                     <div class="form-group">
                         <label for="cname">Class</label>
-                        <input type="text" class="form-control" id="cname" placeholder="Enter Class Name">
+                        <input type="text" name="cname" class="form-control" id="cname" placeholder="Enter Class Name">
                     </div>
                     <button type="submit" name="submit-class" class="btn btn-primary">Add Class</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for class -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+    <div class="modal-dialog shadow" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Academic Year</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="cname">Year</label>
+                        <input type="text" name="acad" class="form-control" id="cname" placeholder="Enter Class Name">
+                    </div>
+                    <button type="submit" name="submit-acad" class="btn btn-primary">Add Year</button>
                 </form>
             </div>
             <div class="modal-footer">
