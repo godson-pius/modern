@@ -2,7 +2,9 @@
 require_once 'inc/functions/config.php';
 blockUrlHackers("login");
 
-$teachers = fetchAll("teachers", "id", 0, 50);
+// Getting approved teachers
+$teachers = where("teachers", "approve", 1, 50);
+
 ?>
 
 
@@ -28,7 +30,7 @@ $teachers = fetchAll("teachers", "id", 0, 50);
                             <div class="card-header__title text-muted mb-2">Number of Students</div>
                             <div class="text-amount font-weight-bold"><?= getTotal("students", null, null); ?></div>
                             <div class="chart" style="height: 80px; position: absolute; left: 0; right: 0; bottom: 0;">
-                                <p class="mt-5 ml-3 text-secondary">Modern School Nursery & Primary School</p>
+                                <!-- <p class="mt-5 ml-3 text-secondary">Modern School Nursery & Primary School</p> -->
                             </div>
                         </div>
                     </div>
@@ -37,7 +39,7 @@ $teachers = fetchAll("teachers", "id", 0, 50);
                             <div class="card-header__title text-muted mb-2">Number of Teachers</div>
                             <div class="text-amount font-weight-bold"><?= getTotal("teachers", null, null); ?></div>
                             <div class="chart" style="height: 80px; position: absolute; left: 0; right: 0; bottom: 0;">
-                                <p class="mt-5 ml-3 text-secondary">Modern School Nursery & Primary School</p>
+                                <!-- <p class="mt-5 ml-3 text-secondary">Modern School Nursery & Primary School</p> -->
                             </div>
                         </div>
                     </div>
@@ -51,7 +53,7 @@ $teachers = fetchAll("teachers", "id", 0, 50);
                     <div class="card-header card-header-large bg-white d-flex align-items-center">
                         <h4 class="card-header__title flex m-0">Recent Activity</h4>
                         <div data-toggle="flatpickr" data-flatpickr-wrap="true" data-flatpickr-static="true" data-flatpickr-mode="range" data-flatpickr-alt-format="d/m/Y" data-flatpickr-date-format="d/m/Y">
-                            <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 <span class="text-muted mx-1">to</span> 20/03/2018</a>
+                            <!-- <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 <span class="text-muted mx-1">to</span> 20/03/2018</a> -->
                             <input class="d-none" type="hidden" value="13/03/2018 to 20/03/2018" data-input>
                         </div>
                     </div>
@@ -186,12 +188,11 @@ $teachers = fetchAll("teachers", "id", 0, 50);
                                 </div>
                             </th>
 
-                            <th>Name</th>
-                            <th style="width: 130px;">Class</th>
-                            <th style="width: 48px;">Email</th>
-                            <th style="width: 120px;">Last Logged In</th>
-                            <th style="width: 51px;">Earnings</th>
-                            <th style="width: 24px;">Grant Access</th>
+                            <th style="width: 400px;">Name</th>
+                            <th>Email</th>
+                            <th>Tel</th>
+                            <th>Access</th>
+                            <th>Action</th>
                         </tr>
 
                     </thead>
@@ -214,32 +215,31 @@ $teachers = fetchAll("teachers", "id", 0, 50);
 
                                         <div class="media align-items-center">
                                             <div class="avatar avatar-xs mr-2">
-                                                <img src="assets/images/teachers/<?= $image; ?>" alt="Avatar" class="avatar-img rounded-circle">
+                                                <img src="../assets/images/teachers/<?= $t_image; ?>" alt="Avatar" class="avatar-img rounded-circle">
                                             </div>
                                             <div class="media-body">
 
-                                                <span class="js-lists-values-employee-name"><?= $name; ?></span>
+                                                <span class="js-lists-values-employee-name"><a href="view-teacher?id=<?= $id; ?>"><?= $teacher_name; ?></a></span>
 
                                             </div>
                                         </div>
 
                                     </td>
 
-                                    <td>
-                                        Basic 5
-                                    </td>
-
-                                    <td>12</td>
-                                    <td><small class="text-muted">3 days ago</small></td>
-                                    <td>&dollar;12,402</td>
+                                    <td><?= $email; ?></td>
+                                    <td><?= $tel; ?></td>
                                     <td>
                                         <div class="media align-items-center">
-                                            <a href="#" class="font-weight-bold text-uppercase btn btn-success btn-sm">Grant</a>
-                                            <a href="#" class="ml-1 font-weight-bold text-uppercase btn btn-warning btn-sm">Deny</a>
-
-                                            <a href="#" class="ml-1 font-weight-bold text-uppercase btn btn-danger btn-sm">Delete</a>
-
+                                            <?php
+                                            if ($access == 0) { ?>
+                                                <a onclick="grant_access(this)" data-access="<?= $id; ?>" class="font-weight-bold text-uppercase btn btn-success btn-sm">Grant</a>
+                                            <?php } else { ?>
+                                                <a onclick="suspend(this)" data-suspend="<?= $id; ?>" class="ml-1 font-weight-bold text-uppercase btn btn-warning btn-sm">Suspend</a>
+                                            <?php } ?>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <a onclick="delete_teacher(this)" data-delete="<?= $id; ?>" class="ml-1 text-light font-weight-bold text-uppercase btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                         <?php }
@@ -249,7 +249,8 @@ $teachers = fetchAll("teachers", "id", 0, 50);
             </div>
 
             <div class="card-body text-right">
-                <span class="text-muted">Modern Nursery & Primary School</span>
+                <i class="fa fa-cogs text-warning"></i>
+                <span class="text-info"> Refresh to take double action on a particular teacher</span>
             </div>
 
 

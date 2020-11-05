@@ -60,6 +60,9 @@
 <script src="assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
 <script src="assets/js/vector-maps.js"></script>
 
+<!-- My Custom Js -->
+<script src="custom/js/admin.js"></script>
+
 </body>
 
 </html>

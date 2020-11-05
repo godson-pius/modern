@@ -9,7 +9,7 @@ require_once 'inc/header.php';
                     <li><a href="#">Home</a></li>
                     <li class="active"><a href="#">About</a></li>
                 </ul><!-- /.list-unstyled -->
-                <h2 class="inner-banner__title">About</h2><!-- /.inner-banner__title -->
+                <h2 class="inner-banner__title mb-5">About</h2><!-- /.inner-banner__title -->
             </div><!-- /.container -->
         </section><!-- /.inner-banner -->
         <section class="about-one about-one__about-page">

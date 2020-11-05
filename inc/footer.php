@@ -64,7 +64,7 @@
     </div><!-- /.site-footer__upper -->
     <div class="site-footer__bottom">
         <div class="container">
-            <p class="site-footer__copy">&copy; Copyright 2019 by <a href="#">worldbraintechnology.com</a></p>
+            <p class="site-footer__copy">&copy; Copyright <?= date('Y'); ?> by <a href="worldbraintechnology.com">worldbraintechnology.com</a></p>
             <div class="site-footer__social">
                 <a href="#" data-target="html" class="scroll-to-target site-footer__scroll-top"><i class="kipso-icon-top-arrow"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>

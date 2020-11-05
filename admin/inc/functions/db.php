@@ -287,3 +287,15 @@ function getTotalBookExc($table, $optional = null, $optionValue = null) {
     }
 
 }
+
+function teacherAction($table, $field, $stats, $col, $id)
+{
+    $sql = $sql = "UPDATE $table SET $field = $stats WHERE $col = $id";
+    $result = validateQuery($sql);
+
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}

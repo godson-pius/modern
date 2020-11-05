@@ -1,5 +1,6 @@
 <?php
 require_once 'admin/inc/functions/config.php';
+
 $news = fetchAllDesc("news", "id", 0, 10);
 $subjects = fetchAllDesc("subjects");
 ?>
@@ -123,44 +124,47 @@ require_once 'inc/header.php'; ?>
     <div class="container">
         <div class="course-one__carousel owl-carousel owl-theme">
             <?php
-                if (!empty($subjects)) {
-                    foreach ($subjects as $subject) {
-                        extract($subject);
-                        
-                        $subject_teachers = where("teachers", "id", $subject_teacher_fk);
-                        if (!empty($subject_teachers)) {
-                            foreach ($subject_teachers as $subject_teacher) {
-                        ?>
-                        <div class="item">
-                            <div class="course-one__single color-1">
-                                <div class="course-one__image">
-                                    <!--<img src="assets/images/course-1-1.jpg" alt="">-->
-                                    <div style="width: 370px; height: 243px; background-image: url('assets/images/patter-1-1.jpg'); background-position: center; background-size: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
-                                    <i class="far fa-heart"></i><!-- /.far fa-heart -->
-                                </div><!-- /.course-one__image -->
-                                <div class="course-one__content">
-                                    <a href="#" class="course-one__category">calculations</a><!-- /.course-one__category -->
-                                    <div class="course-one__admin">
-                                        <img src="assets/images/team-1-1.jpg" alt="">
-                                        by <a href="teacher-details.html"><?= $subject_teacher['name']; ?></a>
-                                    </div><!-- /.course-one__admin -->
-                                    <h2 class="course-one__title"><a href="course-details.html"><?= $subject_name; ?></a></h2>
-                                    <!-- /.course-one__title -->
-                                    <div class="course-one__stars">
-                                        <span class="course-one__stars-wrap">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.course-one__stars-wrap -->
-                                        <span class="course-one__count"></span><!-- /.course-one__count -->
-                                        <span class="course-one__stars-count">100%</span><!-- /.course-one__stars-count -->
-                                    </div><!-- /.course-one__stars -->
-                                </div><!-- /.course-one__content -->
-                            </div><!-- /.course-one__single -->
-                        </div><!-- /.item -->
-                <?php } } } } ?>
+            if (!empty($subjects)) {
+                foreach ($subjects as $subject) {
+                    extract($subject);
+
+                    $subject_teachers = where("teachers", "id", $subject_teacher_fk);
+                    if (!empty($subject_teachers)) {
+                        foreach ($subject_teachers as $subject_teacher) {
+            ?>
+                            <div class="item">
+                                <div class="course-one__single color-1">
+                                    <div class="course-one__image">
+                                        <!--<img src="assets/images/course-1-1.jpg" alt="">-->
+                                        <div style="width: 370px; height: 243px; background-image: url('assets/images/patter-1-1.jpg'); background-position: center; background-size: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+                                        <i class="far fa-heart"></i><!-- /.far fa-heart -->
+                                    </div><!-- /.course-one__image -->
+                                    <div class="course-one__content">
+                                        <a href="#" class="course-one__category"><?= $subject_name; ?></a><!-- /.course-one__category -->
+                                        <div class="course-one__admin">
+                                            <img src="assets/images/team-1-1.jpg" alt="">
+                                            by <a href="teacher-details.html"><?= $subject_teacher['teacher_name']; ?></a>
+                                        </div><!-- /.course-one__admin -->
+                                        <h2 class="course-one__title"><a href="course-details.html"><?= $subject_name; ?></a></h2>
+                                        <!-- /.course-one__title -->
+                                        <div class="course-one__stars">
+                                            <span class="course-one__stars-wrap">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </span><!-- /.course-one__stars-wrap -->
+                                            <span class="course-one__count"></span><!-- /.course-one__count -->
+                                            <span class="course-one__stars-count">100%</span><!-- /.course-one__stars-count -->
+                                        </div><!-- /.course-one__stars -->
+                                    </div><!-- /.course-one__content -->
+                                </div><!-- /.course-one__single -->
+                            </div><!-- /.item -->
+            <?php }
+                    }
+                }
+            } ?>
 
         </div><!-- /.course-one__carousel -->
     </div><!-- /.container -->
@@ -174,7 +178,7 @@ require_once 'inc/header.php'; ?>
                     <h2 class="video-two__title">Modern one & only <br>
                         mission is to extend <br>
                         your knowledge base</h2><!-- /.video-two__title -->
-                    <a href="#" class="thm-btn">Learn More</a><!-- /.thm-btn -->
+                    <a href="about" class="thm-btn">Learn More</a><!-- /.thm-btn -->
                 </div><!-- /.video-two__content -->
             </div><!-- /.col-lg-7 -->
             <div class="col-lg-5 d-flex justify-content-lg-end justify-content-sm-start">
@@ -189,43 +193,36 @@ require_once 'inc/header.php'; ?>
 <section class="countdown-one">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 rounded">
                 <div class="countdown-one__content">
                     <h2 class="countdown-one__title">Register now </h2><!-- /.countdown-one__title -->
-                    <p class="countdown-one__tag-line">get premium online courses for free!</p>
+                    <p class="countdown-one__tag-line">get started with us.</p>
                     <!-- /.countdown-one__tag-line -->
-                    <p class="countdown-one__text">Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin,
-                        lorem
-                        quis bibendum auci elit consequat is simply free text available in the psutis sem nibh id eis
-                        sed
-                        odio sit amet.</p><!-- /.countdown-one__text -->
+                    <p class="countdown-one__text">
+                        Our Modern Nursery/Primary School is located at No. 7 Iji / Chukwume Street off St. Mary's Maternity Hospital Abakpa in Enugu East Local Government Area, Enugu State.</p><!-- /.countdown-one__text -->
                 </div><!-- /.countdown-one__content -->
             </div><!-- /.col-lg-6 -->
             <div class="col-lg-6">
                 <div class="become-teacher__form">
                     <div class="become-teacher__form-top">
                         <h2 class="become-teacher__form-title">
-                            Get free courses
+                            Get Started
                         </h2><!-- /.become-teacher__form-title -->
                     </div><!-- /.become-teacher__top -->
-                    <div class="become-teacher__form-content">
-                        <input type="text" placeholder="Your Name" name="name">
-                        <input type="text" placeholder="Email Address" name="email">
-                        <input type="text" placeholder="Phone Number" name="phone">
-                        <input type="text" placeholder="Comment" name="message">
-                        <button type="submit" class="thm-btn become-teacher__form-btn">Apply For It</button>
+                    <div style="background-color: red; height: 400px; background-image: url(assets/images/main/img1.jpg); background-position: center; background-size: cover;" class="become-teacher__form-content">
+
                     </div><!-- /.become-teacher__form-content -->
                 </div><!-- /.become-teacher__form -->
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </div><!-- /.container -->
-</section><!-- /.countdown-one -->
+</section>
 
 <section class="cta-three">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 clearfix">
-                <div class="cta-three__image" style="width: 932px; height: 764px; background-image: url('assets/images/main/img2.jpeg'); background-position: center; background-size: cover;"></div>
+                <div class="cta-three__image rounded" style="width: 932px; height: 764px; background-image: url('assets/images/main/img2.jpeg'); background-position: center; background-size: cover;"></div>
             </div><!-- /.col-lg-6 -->
             <div class="col-lg-6">
                 <div class="cta-three__content">
@@ -249,6 +246,7 @@ require_once 'inc/header.php'; ?>
                         <div class="cta-three__single">
                             <i class="kipso-icon-human-resources"></i><!-- /.kipso-icon-human-resources -->
                             <p class="cta-three__single-text">Experienced
+
                                 Teachers</p><!-- /.cta-three__single-text -->
                         </div><!-- /.cta-three__single -->
                     </div><!-- /.cta-three__single-wrap -->
@@ -273,15 +271,15 @@ require_once 'inc/header.php'; ?>
                     <div class="item">
                         <div class="blog-two__single" style="background-image: url(assets/images/news/<?= $image_url; ?>); background-position: center; background-size: cover;">
                             <div class="blog-two__inner">
-                                <a href="news-details.html" class="blog-two__date">
+                                <a href="news-details?news_id=<?= $id; ?>" class="blog-two__date">
                                     <span><?= date("d", strtotime($date_posted)); ?></span>
                                     <?= date("M", strtotime($date_posted)); ?>
                                 </a><!-- /.blog-two__date -->
                                 <div class="blog-two__meta">
-                                    <a href="#">by Admin</a>
+                                    <a href="news-details?news_id=<?= $id; ?>">by Admin</a>
                                 </div><!-- /.blog-two__meta -->
                                 <h3 class="blog-two__title">
-                                    <a href="news-details.html"><?= $title; ?></a>
+                                    <a href="news-details?news_id=<?= $id; ?>"><?= $title; ?></a>
                                 </h3><!-- /.blog-two__title -->
                             </div><!-- /.blog-two__inner -->
                         </div><!-- /.blog-two__single -->
