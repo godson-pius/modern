@@ -1,6 +1,6 @@
 <!-- App Settings FAB -->
 <div id="app-settings">
-    <app-settings layout-active="default" :layout-location="{
+  <app-settings layout-active="default" :layout-location="{
       'default': 'admin-dashboard.html',
       'fixed': 'fixed-admin-dashboard.html',
       'fluid': 'fluid-admin-dashboard.html',
@@ -63,6 +63,14 @@
 <!-- My Custom Js -->
 <script src="custom/js/admin.js"></script>
 
+<!-- DataTables js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#myTable').DataTable();
+  });
+</script>
 </body>
 
 </html>

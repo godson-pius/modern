@@ -317,5 +317,18 @@ require_once 'inc/header.php'; ?>
     </div><!-- /.container -->
 </section><!-- /.mailchimp-one -->
 
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Samuel</td>
+        </tr>
+    </tbody>
+</table>
+
 <!-- Page Footer -->
 <?php require_once 'inc/footer.php'; ?>
