@@ -269,7 +269,7 @@ require_once 'inc/header.php'; ?>
                 foreach ($news as $new) {
                     extract($new); ?>
                     <div class="item">
-                        <div class="blog-two__single" style="background-image: url(assets/images/news/<?= $image_url; ?>); background-position: center; background-size: cover;">
+                        <div class="blog-two__single rounded" style="background-image: url(assets/images/news/<?= $image_url; ?>); background-position: center; background-size: cover; height: 400px;">
                             <div class="blog-two__inner">
                                 <a href="news-details?news_id=<?= $id; ?>" class="blog-two__date">
                                     <span><?= date("d", strtotime($date_posted)); ?></span>
@@ -316,19 +316,6 @@ require_once 'inc/header.php'; ?>
         </div><!-- /.row -->
     </div><!-- /.container -->
 </section><!-- /.mailchimp-one -->
-
-<table id="myTable">
-    <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Samuel</td>
-        </tr>
-    </tbody>
-</table>
 
 <!-- Page Footer -->
 <?php require_once 'inc/footer.php'; ?>
