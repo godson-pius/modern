@@ -37,10 +37,10 @@
                         <a href="#">needhelp@mnps.com</a>
                         <a href="#">+234 899 9098 909</a>
                     </div><!-- /.topbar-one__left -->
-                    <div class="topbar-one__right">
+                    <!-- <div class="topbar-one__right">
                         <a href="#">Login</a>
                         <a href="#">Register</a>
-                    </div><!-- /.topbar-one__right -->
+                    </div> -->
                 </div><!-- /.container -->
             </div><!-- /.topbar-one -->
             <header class="site-header site-header__header-one ">
@@ -73,7 +73,6 @@
                                     <ul class="sub-menu">
                                         <li><a href="about">About MNPS</a></li>
                                         <li><a href="gallery">Gallery</a></li>
-                                        <li><a href="#">FAQ'S</a></li>
                                     </ul><!-- /.sub-menu -->
                                 </li>
                                 <li>
@@ -82,7 +81,7 @@
                                 <li>
                                     <a href="teachers">Teachers</a>
                                     <ul class="sub-menu">
-                                        <li><a href="teachers.html">Teachers</a></li>
+                                        <li><a href="teachers">Teachers</a></li>
                                         <li><a href="teacher-optin">Opt In</a></li>
                                     </ul><!-- /.sub-menu -->
                                 </li>

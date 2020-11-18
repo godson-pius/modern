@@ -65,7 +65,32 @@ require_once 'inc/header.php'; ?>
     </div><!-- /.container -->
 </section><!-- /.contact-one -->
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" class="google-map__contact" allowfullscreen></iframe>
+<div class="row">
+    <div class="col-lg-12">
+        <div id="display_map<?= $id; ?>">
+            <div id="mapId" class="shadow" style="height: 600px" class="card-body card-block">
+                <div style="overflow:hidden;width: 100%;position: relative;"><iframe width="100%" height="600" src="https://maps.google.com/maps?hl=en&amp;q=Emene+(Location)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 0px;background: #fff;"> <a href="https://googlemapsembed.net/" rel="nofollow">Google Maps Embed</a> </small></div>
+                    <style>
+                        .nvs {
+                            position: relative;
+                            text-align: right;
+                            height: 325px;
+                            width: 643px;
+                        }
+
+                        #gmap_canvas img {
+                            max-width: none !important;
+                            background: none !important;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div> <!-- End of Display Map -->
+    </div>
+</div>
+
+<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" class="google-map__contact" allowfullscreen></iframe> -->
 
 <!-- Page Footer -->
 <?php require_once 'inc/footer.php'; ?>
