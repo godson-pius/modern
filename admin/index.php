@@ -154,7 +154,7 @@ $classes = fetchAll("classes");
                         foreach ($classes as $class) {
                             extract($class); ?>
                             <div class="col-lg-4 mt-2 mb-2">
-                                <div class="card">
+                                <div class="card shadow">
                                     <div class="card-header">
                                         Class Name
                                     </div>
