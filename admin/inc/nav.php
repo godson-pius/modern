@@ -42,7 +42,7 @@ if (isset($_POST['submit-acad'])) {
         <div class="sidebar sidebar-dark sidebar-left bg-dark-gray" data-perfect-scrollbar>
 
             <div class="d-flex align-items-center sidebar-p-a sidebar-account flex-shrink-0">
-                <a href="index.html" class="flex d-flex align-items-center text-underline-0">
+                <a href="index" class="flex d-flex align-items-center text-underline-0">
                     <span class="mr-3">
                         <!-- LOGO -->
                         <svg width="30px" viewBox="0 0 27 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -54,7 +54,7 @@ if (isset($_POST['submit-acad'])) {
                     </span>
                     <span class="flex d-flex flex-column">
                         <span class="sidebar-brand">MNPS</span>
-                        <small>Next Generation</small>
+                        <small>Admin Dashboard</small>
                     </span>
                 </a>
             </div>
@@ -62,10 +62,10 @@ if (isset($_POST['submit-acad'])) {
 
             <ul class="sidebar-menu">
                 <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="index.html">
+                    <a class="sidebar-menu-button" href="index">
 
                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">photo_filter</i>
-                        <span class="sidebar-menu-text">Dr. James Doe</span>
+                        <span class="sidebar-menu-text">Administrator</span>
                     </a>
                 </li>
             </ul>
@@ -91,12 +91,12 @@ if (isset($_POST['submit-acad'])) {
                             <span class="sidebar-menu-text">Add New Academic Year</span>
                         </a>
                     </li>
-                    <li class="sidebar-menu-item">
+                    <!-- <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal2">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">comment</i>
                             <span class="sidebar-menu-text">Add Students</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" href="pending">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">local_offer</i>

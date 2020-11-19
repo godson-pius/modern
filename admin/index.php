@@ -1,9 +1,10 @@
 <?php
 require_once 'inc/functions/config.php';
-blockUrlHackers("login");
+blockUrlHackers('login');
 
 // Getting approved teachers
 $teachers = where("teachers", "approve", 1, 50);
+$classes = fetchAll("classes");
 
 ?>
 
@@ -42,127 +43,6 @@ $teachers = where("teachers", "approve", 1, 50);
                                 <!-- <p class="mt-5 ml-3 text-secondary">Modern School Nursery & Primary School</p> -->
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg">
-                <div class="card">
-                    <div class="card-header card-header-large bg-white d-flex align-items-center">
-                        <h4 class="card-header__title flex m-0">Recent Activity</h4>
-                        <div data-toggle="flatpickr" data-flatpickr-wrap="true" data-flatpickr-static="true" data-flatpickr-mode="range" data-flatpickr-alt-format="d/m/Y" data-flatpickr-date-format="d/m/Y">
-                            <!-- <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 <span class="text-muted mx-1">to</span> 20/03/2018</a> -->
-                            <input class="d-none" type="hidden" value="13/03/2018 to 20/03/2018" data-input>
-                        </div>
-                    </div>
-                    <div class="card-header card-header-tabs-basic nav" role="tablist">
-                        <a href="#activity_all" class="active" data-toggle="tab" role="tab" aria-controls="activity_all" aria-selected="true">All</a>
-                        <a href="#activity_purchases" data-toggle="tab" role="tab" aria-controls="activity_purchases" aria-selected="false">Students</a>
-                        <a href="#activity_emails" data-toggle="tab" role="tab" aria-controls="activity_emails" aria-selected="false">Teachers</a>
-                        <a href="#activity_quotes" data-toggle="tab" role="tab" aria-controls="activity_quotes" aria-selected="false">Subjects</a>
-                    </div>
-                    <div class="list-group tab-content list-group-flush">
-                        <div class="tab-pane active show fade" id="activity_all">
-
-
-                            <div class="list-group-item list-group-item-action d-flex align-items-center ">
-                                <div class="avatar avatar-xs mr-3">
-                                    <span class="avatar-title rounded-circle  bg-purple">
-                                        <i class="material-icons">monetization_on</i>
-                                    </span>
-                                </div>
-
-                                <div class="flex">
-                                    <div class="d-flex align-items-middle">
-                                        <div class="avatar avatar-xxs mr-1">
-                                            <img src="assets/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
-                                        </div>
-                                        <strong class="text-15pt mr-1">Jenell D. Matney</strong>
-                                    </div>
-                                    <small class="text-muted">4 days ago</small>
-                                </div>
-                            </div>
-
-                            <div class="card-footer text-center border-0">
-                                <p class="text-muted">Modern Nursery and Primary School</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="activity_purchases">
-
-                            <div class="list-group-item list-group-item-action d-flex align-items-center  bg-light ">
-                                <div class="avatar avatar-xs mr-3">
-                                    <span class="avatar-title rounded-circle ">
-                                        <i class="material-icons">monetization_on</i>
-                                    </span>
-                                </div>
-
-                                <div class="flex">
-                                    <div class="d-flex align-items-middle">
-                                        <div class="avatar avatar-xxs mr-1">
-                                            <img src="assets/images/256_michael-dam-258165-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
-                                        </div>
-                                        <strong class="text-15pt mr-1"></strong>
-
-                                    </div>
-                                    <small class="text-muted">just now</small>
-                                </div>
-                                <div>$631</div>
-                                <i class="material-icons icon-muted ml-3">arrow_forward</i>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="activity_emails">
-
-                            <div class="list-group-item list-group-item-action d-flex align-items-center ">
-                                <div class="avatar avatar-xs mr-3">
-                                    <span class="avatar-title rounded-circle  bg-teal">
-                                        <i class="material-icons">email</i>
-                                    </span>
-                                </div>
-
-                                <div class="flex">
-                                    <div class="d-flex align-items-middle">
-                                        <div class="avatar avatar-xxs mr-1">
-                                            <img src="assets/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
-                                        </div>
-                                        <strong class="text-15pt mr-1">Jenell D. Matney</strong>
-
-                                    </div>
-                                    <small>Confirmation required for design</small>
-                                </div>
-                                <small class="text-muted">4 days ago</small>
-                                <i class="material-icons icon-muted ml-3">arrow_forward</i>
-                            </div>
-
-                        </div>
-
-                        <div class="tab-pane" id="activity_quotes">
-
-                            <div class="list-group-item list-group-item-action d-flex align-items-center ">
-                                <div class="avatar avatar-xs mr-3">
-                                    <span class="avatar-title rounded-circle  bg-teal">
-                                        <i class="material-icons">email</i>
-                                    </span>
-                                </div>
-
-                                <div class="flex">
-                                    <div class="d-flex align-items-middle">
-                                        <div class="avatar avatar-xxs mr-1">
-                                            <img src="assets/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
-                                        </div>
-                                        <strong class="text-15pt mr-1">Mathematics</strong>
-
-                                    </div>
-                                    <small>Confirmation required for design</small>
-                                </div>
-                                <small class="text-muted">4 days ago</small>
-                                <i class="material-icons icon-muted ml-3">arrow_forward</i>
-                            </div>
-
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -256,6 +136,45 @@ $teachers = where("teachers", "approve", 1, 50);
 
         </div>
 
+        <!-- For Number of Classes -->
+        <div class="card">
+            <div class="card-header card-header-large bg-white">
+                <h4 class="card-header__title">Current Classes</h4>
+            </div>
+
+
+            <div class="table-responsive text-center border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+                <div class="row">
+
+
+
+
+                    <?php
+                    if (isset($classes)) {
+                        foreach ($classes as $class) {
+                            extract($class); ?>
+                            <div class="col-lg-4 mt-2 mb-2">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Class Name
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $class; ?></h5>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php }
+                    } ?>
+                </div>
+            </div>
+
+            <div class="card-body text-right">
+                <i class="fa fa-cogs text-warning"></i>
+                <span class="text-info"> Classes in MNPS</span>
+            </div>
+
+
+        </div>
 
     </div>
 

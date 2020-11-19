@@ -79,14 +79,14 @@
 
 
 
-                                <form class="ml-auto search-form search-form--light d-none d-sm-flex flex" action="index.html">
+                                <!-- <form class="ml-auto search-form search-form--light d-none d-sm-flex flex" action="index.html">
                                     <input type="text" class="form-control" placeholder="Search">
                                     <button class="btn" type="submit"><i class="material-icons">search</i></button>
-                                </form>
+                                </form> -->
 
 
                                 <ul class="nav navbar-nav d-none d-md-flex">
-                                    <li class="nav-item dropdown">
+                                    <!-- <li class="nav-item dropdown">
                                         <a href="#notifications_menu" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
                                             <i class="material-icons nav-icon navbar-notifications-indicator">notifications</i>
                                         </a>
@@ -119,7 +119,7 @@
                                         <a href="#events-drawer" data-toggle="sidebar" class="nav-link d-flex align-items-center">
                                             <i class="material-icons nav-icon">event_note</i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
 
                                 <div class="dropdown">
@@ -133,19 +133,19 @@
                                                 <img src="assets/images/frontted-logo-blue.svg" width="43" height="43" alt="avatar">
                                             </span>
                                             <span class="flex d-flex flex-column">
-                                                <strong class="h5 m-0">Adrian D.</strong>
+                                                <strong class="h5 m-0"></strong>
                                                 <small class="text-muted text-uppercase">Admin</small>
                                             </span>
 
                                         </div>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item d-flex align-items-center py-2" href="edit-account.html">
+                                        <!-- <a class="dropdown-item d-flex align-items-center py-2" href="edit-account.html">
                                             <span class="material-icons mr-2">account_circle</span> Edit Account
                                         </a>
                                         <a class="dropdown-item d-flex align-items-center py-2" href="#">
                                             <span class="material-icons mr-2">settings</span> Settings
-                                        </a>
-                                        <a class="dropdown-item d-flex align-items-center py-2" href="login.html">
+                                        </a> -->
+                                        <a class="dropdown-item d-flex align-items-center py-2" href="login">
                                             <span class="material-icons mr-2">exit_to_app</span> Logout
                                         </a>
                                     </div>
