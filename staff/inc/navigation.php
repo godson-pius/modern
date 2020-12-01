@@ -1,11 +1,11 @@
 <div class="sidebar-block p-0">
 
-    <div class="sidebar-heading">Instructor</div>
+    <div class="sidebar-heading">Teacher</div>
 
 
     <ul class="sidebar-menu mt-0">
         <li class="sidebar-menu-item active">
-            <a class="sidebar-menu-button" href="index.php">
+            <a class="sidebar-menu-button" href="index">
                 <span class="sidebar-menu-icon sidebar-menu-icon--left">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
                         <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
@@ -18,7 +18,7 @@
         </li>
 
         <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="instructor-courses.php">
+            <a class="sidebar-menu-button" href="instructor-courses">
                 <span class="sidebar-menu-icon sidebar-menu-icon--left">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
                         <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
@@ -30,38 +30,10 @@
             </a>
         </li>
 
-        <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="instructor-course-edit.php">
-                <span class="sidebar-menu-icon sidebar-menu-icon--left">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
-                        <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
-                            <path d="M19,13c-0.552,0-1,0.448-1,1v7c0,0.552-0.448,1-1,1H3c-0.552,0-1-0.448-1-1V3c0-0.552,0.448-1,1-1h7c0.552,0,1-0.448,1-1 s-0.448-1-1-1H3C1.343,0,0,1.343,0,3v18c0,1.657,1.343,3,3,3h14c1.657,0,3-1.343,3-3v-7C20,13.448,19.552,13,19,13z M8.73,12.521 c-0.174,0.048-0.309,0.186-0.353,0.361L7.82,15.119l-1.252,1.252c-0.293,0.293-0.293,0.768,0,1.061c0,0,0,0,0,0 c0.295,0.287,0.765,0.287,1.06,0l1.264-1.262l2.207-0.555c0.174-0.044,0.312-0.177,0.36-0.35c0.048-0.173,0-0.359-0.127-0.487 L9.217,12.65C9.09,12.522,8.904,12.473,8.73,12.521z M23.707,0.293c-0.39-0.39-1.024-0.39-1.414,0l-0.9,0.9 c-0.518-0.138-1.07-0.063-1.533,0.208L19.808,1.35c-1.172-1.165-3.066-1.162-4.235,0.006l-3.612,3.605 c-0.39,0.391-0.39,1.023,0,1.414c0.394,0.384,1.021,0.384,1.415,0L17,2.761c0.392-0.384,1.019-0.381,1.407,0.007L17.7,3.475 c-0.195,0.195-0.195,0.512,0,0.707L19.818,6.3c0.195,0.195,0.512,0.195,0.707,0l1.768-1.768c0.504-0.505,0.701-1.241,0.517-1.93 l0.9-0.9C24.096,1.311,24.095,0.682,23.707,0.293z M12.4,14.22c0.132,0,0.259-0.053,0.353-0.147l6.356-6.355 c0.195-0.195,0.195-0.512,0-0.707L16.99,4.889c-0.198-0.188-0.509-0.188-0.707,0l-6.356,6.356c-0.195,0.195-0.195,0.512,0,0.707 l2.121,2.121C12.141,14.167,12.268,14.219,12.4,14.22z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </span>
-                <span class="sidebar-menu-text">Edit Course</span>
-            </a>
-        </li>
-
 
 
         <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="instructor-lesson-edit.php">
-                <span class="sidebar-menu-icon sidebar-menu-icon--left">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
-                        <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
-                            <path d="M12.75,5h-6C6.336,5,6,5.336,6,5.75S6.336,6.5,6.75,6.5h6c0.414,0,0.75-0.336,0.75-0.75S13.164,5,12.75,5z M13.5,9.25 c0-0.414-0.336-0.75-0.75-0.75h-8C4.336,8.5,4,8.836,4,9.25S4.336,10,4.75,10h8C13.164,10,13.5,9.664,13.5,9.25z M4.75,12 C4.336,12,4,12.336,4,12.75s0.336,0.75,0.75,0.75h5.5c0.414,0,0.75-0.336,0.75-0.75S10.664,12,10.25,12H4.75z M11.3,17.655 c-0.039-0.093-0.13-0.154-0.231-0.155H2.5C2.224,17.5,2,17.276,2,17V2.5C2,2.224,2.224,2,2.5,2h13C15.776,2,16,2.224,16,2.5v10.07 c0,0.138,0.112,0.25,0.251,0.249c0.066,0,0.13-0.027,0.176-0.073l1.28-1.28C17.895,11.279,18,11.024,18,10.759V2 c0-1.105-0.895-2-2-2H2C0.895,0,0,0.895,0,2v15.5c0,1.105,0.895,2,2,2h7.868c0.22,0,0.413-0.143,0.478-0.353 c0.095-0.311,0.267-0.592,0.5-0.819l0.4-0.4C11.318,17.856,11.339,17.749,11.3,17.655z M12.062,20.131 c-0.099-0.097-0.258-0.096-0.355,0.003c-0.034,0.034-0.057,0.078-0.067,0.125L11.012,23.4c-0.055,0.271,0.119,0.535,0.39,0.59 c0.033,0.007,0.066,0.01,0.1,0.01c0.034,0,0.067-0.003,0.1-0.01l3.143-0.629c0.135-0.027,0.223-0.159,0.195-0.295 c-0.01-0.048-0.034-0.093-0.068-0.127L12.062,20.131z M23.228,11.765c-1.023-1.02-2.677-1.02-3.7,0l-6.5,6.5 c-0.195,0.195-0.195,0.512,0,0.707l3,3c0.195,0.195,0.512,0.195,0.707,0l6.5-6.5C24.257,14.447,24.254,12.787,23.228,11.765 C23.228,11.765,23.228,11.765,23.228,11.765z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </span>
-                <span class="sidebar-menu-text">Edit Lesson</span>
-            </a>
-        </li>
-
-
-
-        <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="instructor-create-quiz.php">
+            <a class="sidebar-menu-button" href="instructor-create-quiz">
                 <span class="sidebar-menu-icon sidebar-menu-icon--left">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
                         <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
@@ -77,21 +49,22 @@
 
 
         <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="instructor-earnings.html">
+            <a class="sidebar-menu-button" href="compile">
                 <span class="sidebar-menu-icon sidebar-menu-icon--left">
+                    
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
                         <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
                             <path d="M16,5.75c0.414,0,0.75-0.336,0.75-0.75V3.5c0-0.414-0.336-0.75-0.75-0.75s-0.75,0.336-0.75,0.75V5 C15.25,5.414,15.586,5.75,16,5.75z M21,3c0-1.657-1.343-3-3-3H6C4.343,0,3,1.343,3,3v18c0,1.657,1.343,3,3,3h12 c1.657,0,3-1.343,3-3V3z M12,14c0.552,0,1,0.448,1,1s-0.448,1-1,1s-1-0.448-1-1S11.448,14,12,14z M11,10.5c0-0.552,0.448-1,1-1 s1,0.448,1,1s-0.448,1-1,1S11,11.052,11,10.5z M16.5,18.75c0.414,0,0.75,0.336,0.75,0.75s-0.336,0.75-0.75,0.75H11 c-0.414,0-0.75-0.336-0.75-0.75s0.336-0.75,0.75-0.75H16.5z M16.5,16c-0.552,0-1-0.448-1-1s0.448-1,1-1c0.552,0,1,0.448,1,1 S17.052,16,16.5,16z M16.5,11.5c-0.552,0-1-0.448-1-1s0.448-1,1-1c0.552,0,1,0.448,1,1S17.052,11.5,16.5,11.5z M7.5,16 c-0.552,0-1-0.448-1-1s0.448-1,1-1s1,0.448,1,1S8.052,16,7.5,16z M8.5,19.5c0,0.552-0.448,1-1,1s-1-0.448-1-1s0.448-1,1-1 S8.5,18.948,8.5,19.5z M7.5,11.5c-0.552,0-1-0.448-1-1s0.448-1,1-1s1,0.448,1,1S8.052,11.5,7.5,11.5z M6,2h12c0.552,0,1,0.448,1,1 v3.25c0,0.138-0.112,0.25-0.25,0.25H5.25C5.112,6.5,5,6.388,5,6.25V3C5,2.448,5.448,2,6,2z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
                 </span>
-                <span class="sidebar-menu-text">Earnings</span>
+                <span class="sidebar-menu-text">Compile Result</span>
             </a>
         </li>
 
 
         <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="instructor-profile.php">
+            <a class="sidebar-menu-button" href="instructor-profile">
                 <span class="sidebar-menu-icon sidebar-menu-icon--left material-icons">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
                         <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">

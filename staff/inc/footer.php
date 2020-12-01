@@ -1,6 +1,6 @@
 <!-- App Settings FAB -->
 <div id="app-settings">
-    <app-settings layout-active="default" :layout-location="{
+  <app-settings layout-active="default" :layout-location="{
       'default': 'instructor-dashboard.html',
       'fixed': 'fixed-instructor-dashboard.html',
       'fluid': 'fluid-instructor-dashboard.html',

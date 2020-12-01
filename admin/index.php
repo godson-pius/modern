@@ -146,9 +146,6 @@ $classes = fetchAll("classes");
             <div class="table-responsive text-center border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
                 <div class="row">
 
-
-
-
                     <?php
                     if (isset($classes)) {
                         foreach ($classes as $class) {
