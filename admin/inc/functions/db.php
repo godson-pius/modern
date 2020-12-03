@@ -174,8 +174,8 @@ function getTotal($table, $optional = null, $optionValue = null) {
 
 }
 
-function blockUrlHackers($url) {
-    if (!isset($_SESSION['adminId'])) {
+function blockUrlHackers($user, $url) {
+    if (!isset($_SESSION[$user])) {
         redirect_to("$url");
     }
 }
@@ -227,6 +227,16 @@ function selectInterestedProps() {
 function check_duplicate($table, $field, $sanitized_value)
 {
     $sql = "SELECT * FROM $table WHERE $field = '$sanitized_value'";
+    $result = executeQuery($sql);
+
+    if ($result) {
+        return true;
+    }return false;
+}
+
+function check_multiple_result_upload($table, $field, $sanitized_value, $field2, $sanitized_value2)
+{
+    $sql = "SELECT * FROM $table WHERE $field = $sanitized_value AND $field2 = $sanitized_value2";
     $result = executeQuery($sql);
 
     if ($result) {

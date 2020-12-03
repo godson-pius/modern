@@ -1,5 +1,9 @@
 <?php
 require_once '../admin/inc/functions/config.php';
+blockUrlHackers('teacherId', 'login');
+if (isset($_SESSION['teacherId'])) {
+    $teacherId = $_SESSION['teacherId'];
+}
 
 
 ?>
@@ -47,7 +51,7 @@ require_once '../admin/inc/functions/config.php';
                         <div class="card card-group-row__card card-body card-body-x-lg flex-row align-items-center">
                             <div class="flex">
                                 <div class="card-header__title text-muted mb-2">Compiled Result</div>
-                                <div class="text-amount"><?= getTotal("results") ?></div>
+                                <div class="text-amount"><?= getTotal("results", "teacher_id_fk", $teacherId) ?></div>
                             </div>
                             <div class="avatar">
                                 <span class="bg-soft-primary avatar-title rounded-circle text-center text-primary">

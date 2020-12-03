@@ -1,6 +1,6 @@
 <?php
 require_once 'inc/functions/config.php';
-blockUrlHackers('login');
+blockUrlHackers('adminId', 'login');
 
 // Getting approved teachers
 $teachers = where("teachers", "approve", 1, 50);

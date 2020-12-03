@@ -1,7 +1,21 @@
 <?php
+// error_reporting(0);
 require_once '../admin/inc/functions/config.php';
 
+if (isset($_POST['submit'])) {
 
+    $result = uploadResult($_POST);
+
+    if ($result === true) {
+        echo "success";
+    } else {
+        $err = $result;
+        foreach ($err as $e) {
+            echo $e;
+        }
+    }
+    die();
+}
 ?>
 
 <?php require_once 'inc/header.php'; ?>
@@ -17,6 +31,8 @@ require_once '../admin/inc/functions/config.php';
             <div class="container-fluid page__heading-container">
                 <div class="page__heading d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
                     <h1 class="m-lg-0">Compile Student Result</h1>
+                    <a href="manage_results" class="btn btn-light shadow ml-lg-3">Manage Results <i class="material-icons">arrow_forward</i></a>
+
                 </div>
             </div>
 
@@ -36,12 +52,12 @@ require_once '../admin/inc/functions/config.php';
                                 <p class="text-muted">Provide correct, accurate result to your students with this form.</p>
                             </div>
                             <div class="col-lg-8 card-form__body card-body">
-                                <form action="" method="post">
+                                <form action="" method="post" id="addResult">
                                     <div class="">
                                         <div class="form-group">
-                                            <label for="select01">Select Class</label>
-                                            <select id="classid" onchange="getStudent(this.value)" class="form-control">
-                                                <option selected value="">Select Class</option>
+                                            <label for="classid">Select Class</label>
+                                            <select id="classid" onchange="getStudents(this.value)" name="class" class="form-control" required>
+                                                <option disabled selected value="">Select Class</option>
                                                 <?php
                                                 $classes = fetchAll("classes");
                                                 if (!empty($classes)) {
@@ -55,50 +71,84 @@ require_once '../admin/inc/functions/config.php';
                                             </select>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="select01">Select Student</label>
-                                            <select id="studentid" data-toggle="select" class="form-control">
+                                        <div class="form-group" id="studentName">
+                                            <label for="studentid">Select Student</label>
+                                            <select id="studentid" data-toggle="select" name="student" class="form-control">
 
                                             </select>
                                         </div>
-                                        <div class="form-row">
+
+                                        <div class="form-group">
+                                            <label for="classid">Select Section</label>
+                                            <select id="classid" onchange="getSubjects(this.value)" name="class" class="form-control" required>
+                                                <option disabled selected value="">Select Section</option>
+                                                <?php
+                                                $sections = fetchAll("sections");
+                                                if (!empty($sections)) {
+                                                    foreach ($sections as $section) {
+                                                        extract($section); ?>
+
+                                                        <option value="<?= $id; ?>"><?= $section_name; ?></option>
+
+                                                <?php }
+                                                } ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" id="subjectName">
+                                            <label for="subject">Select Subject</label>
+                                            <select id="subject" data-toggle="select" name="subject" class="form-control">
+
+                                            </select>
+                                        </div>
+
+                                        <div class="form-row" id="testScore">
                                             <div class="col-12 col-md-6 mb-3">
-                                                <label for="validationSample01">First name</label>
-                                                <input type="text" class="form-control" id="validationSample01" placeholder="First name" value="Mark" required="">
-                                                <div class="invalid-feedback">Please provide a first name.</div>
-                                                <div class="valid-feedback">Looks good!</div>
+                                                <label for="firstTest">First Test Score</label>
+                                                <input type="number" onkeyup="getTotalScore()" name="firstTest" class="form-control" id="firstTest" placeholder="First Test" required="">
                                             </div>
                                             <div class="col-12 col-md-6 mb-3">
-                                                <label for="validationSample02">Last name</label>
-                                                <input type="text" class="form-control" id="validationSample02" placeholder="Last name" value="Otto" required="">
-                                                <div class="invalid-feedback">Please provide a last name.</div>
-                                                <div class="valid-feedback">Looks good!</div>
+                                                <label for="secondTest">Second Test Score</label>
+                                                <input type="number" onkeyup="getTotalScore()" name="secondTest" class="form-control" id="secondTest" placeholder="Second Test" required="">
                                             </div>
                                         </div>
+
                                         <div class="form-row">
                                             <div class="col-12 col-md-6 mb-3">
-                                                <label for="validationSample03">City</label>
-                                                <input type="text" class="form-control" id="validationSample03" placeholder="City" required="">
-                                                <div class="invalid-feedback">Please provide a valid city.</div>
-                                                <div class="valid-feedback">Looks good!</div>
+                                                <label for="examScore">Exam Score</label>
+                                                <input type="number" onkeyup="getTotalScore()" name="examScore" class="form-control" id="examScore" placeholder="First Test" required="">
                                             </div>
                                             <div class="col-12 col-md-6 mb-3">
-                                                <label for="validationSample04">State</label>
-                                                <input type="text" class="form-control" id="validationSample04" placeholder="State" required="">
-                                                <div class="invalid-feedback">Please provide a valid state.</div>
-                                                <div class="valid-feedback">Looks good!</div>
+                                                <label for="grandTotal">Grand Total</label>
+                                                <input type="number" name="grandTotal" class="form-control font-weight-bold" id="grandTotal" placeholder="Total" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-12 col-md-6 mb-3">
+                                                <label for="acadYear">Academic Year</label>
+                                                <select name="acadYear" class="form-control" id="acadYear">
+                                                    <option disabled selected value="">Select Academic Year</option>
+                                                    <?php
+                                                    $acadYears = fetchAll("academic_years");
+                                                    if (!empty($acadYears)) {
+                                                        foreach ($acadYears as $acad) {
+                                                            extract($acad); ?>
+
+                                                            <option value="<?= $id; ?>"><?= $academic_year; ?></option>
+
+                                                    <?php }
+                                                    } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-12 col-md-6 mb-3">
+                                                <label for="subjectGrade">Subject Grade</label>
+                                                <input type="text" name="subjectGrade" class="form-control font-weight-bold" id="subjectGrade" placeholder="Subject Grade" readonly>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" type="checkbox" value="" id="invalidCheck01" required="" checked="">
-                                            <label class="custom-control-label" for="invalidCheck01">
-                                                Agree to terms and conditions
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                                    <button class="btn btn-primary" name="submit" type="submit">Submit Result</button>
                                 </form>
                             </div>
                         </div>
@@ -163,4 +213,5 @@ require_once '../admin/inc/functions/config.php';
 <?php require_once 'inc/footer.php'; ?>
 
 <!-- My Js -->
+<script src="assets/js/toaster.js"></script>
 <script src="assets/js/my.js"></script>

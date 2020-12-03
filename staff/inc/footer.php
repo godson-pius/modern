@@ -57,6 +57,14 @@
 <!-- Chart.js Samples -->
 <script src="assets/js/page.instructor-dashboard.js"></script>
 
+<!-- DataTables Js -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+
+<!-- List.js -->
+<script src="assets/vendor/list.min.js"></script>
+<script src="assets/js/list.js"></script>
+
 </body>
 
 </html>

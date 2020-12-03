@@ -1,3 +1,18 @@
+<?php
+require_once '../admin/inc/functions/config.php';
+
+if (isset($_POST['submit'])) {
+    $result = teacherLogin($_POST);
+    if ($result === true) {
+        redirect_to("index");
+    } else {
+        echo "<script>alert('Invalid Login Details')</script>";
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -41,29 +56,30 @@
 
 
 
-    <div class="layout-login-centered-boxed__form">
-        <div class="d-flex flex-column justify-content-center align-items-center mt-2 mb-4 navbar-light">
-            <a href="index.html" class="text-center text-light-gray mb-4">
-
+    <div class="layout-login-centered-boxed__form mt-5">
+        <div class="d-flex flex-column justify-content-center align-items-center mt-2 mb-2 navbar-light">
+            <a href="index.html" class="navbar-brand text-center mb-2 mr-0" style="min-width: 0">
                 <!-- LOGO -->
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="60" height="60">
-                    <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
-                        <path d="M12.177,7.4c-0.23,0-0.416,0.186-0.417,0.416v1.17c-0.011,0.23,0.166,0.426,0.396,0.437s0.426-0.166,0.437-0.396 c0.001-0.014,0.001-0.027,0-0.041V7.819c0.001-0.23-0.185-0.418-0.415-0.419C12.178,7.4,12.177,7.4,12.177,7.4z M7.51,18.486 c-0.23,0-0.416,0.186-0.416,0.416l0,0v0.585c-0.011,0.23,0.166,0.426,0.396,0.437s0.426-0.166,0.437-0.396 c0.001-0.014,0.001-0.027,0-0.041V18.9C7.925,18.671,7.739,18.487,7.51,18.486z M20.15,4.04c-0.232-0.047-0.4-0.252-0.4-0.489V2 c0-1.105-0.895-2-2-2H5.25c-1.637,0-2.972,1.311-3,2.948c0,0.017,0,18.052,0,18.052c0,1.657,1.343,3,3,3h14.5c1.105,0,2-0.895,2-2 V6C21.75,5.049,21.081,4.23,20.15,4.04z M4.25,3c0-0.552,0.448-1,1-1h12c0.276,0,0.5,0.224,0.5,0.5v1c0,0.276-0.224,0.5-0.5,0.5 h-12C4.698,4,4.25,3.552,4.25,3z M9.427,16.569c0,0.423-0.141,0.833-0.4,1.167c0.259,0.334,0.4,0.744,0.4,1.167v0.583 c-0.003,1.057-0.86,1.912-1.917,1.914H6.344c-0.414,0-0.75-0.336-0.75-0.75v-5.831c0-0.414,0.336-0.75,0.75-0.75H7.51 c1.058,0.002,1.915,0.859,1.917,1.917V16.569z M14.093,12.486c0,0.414-0.336,0.75-0.75,0.75s-0.75-0.336-0.75-0.75v-1.167 c-0.011-0.23-0.207-0.407-0.437-0.396c-0.214,0.011-0.386,0.182-0.396,0.396v1.167c0,0.414-0.336,0.75-0.75,0.75 s-0.75-0.336-0.75-0.75V7.819c0.024-1.058,0.902-1.897,1.96-1.873c1.024,0.023,1.849,0.848,1.873,1.873V12.486z M18.01,19.9 c0.414,0,0.75,0.336,0.75,0.75s-0.336,0.75-0.75,0.75c-1.702-0.002-3.081-1.382-3.083-3.084v-1.163 c0.002-1.702,1.381-3.082,3.083-3.084c0.414,0,0.75,0.336,0.75,0.75s-0.336,0.75-0.75,0.75c-0.874,0.001-1.582,0.71-1.583,1.584 v1.166C16.429,19.192,17.137,19.899,18.01,19.9z M7.51,15.569c-0.23,0-0.416,0.186-0.416,0.416l0,0v0.585 C7.083,16.8,7.26,16.996,7.49,17.007s0.426-0.166,0.437-0.396c0.001-0.014,0.001-0.027,0-0.041v-0.583 C7.927,15.757,7.74,15.57,7.51,15.569z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
+                <svg width="26px" viewBox="0 0 27 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="drawer-logo-wrapper" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                        <path d="M21.9257604,14.9506975 C20.582703,15.0217165 19.3145795,14.3502722 18.6558508,13.2193504 C18.5961377,13.1299507 18.488013,13.0821416 18.3788008,13.0968482 C18.2695887,13.1115549 18.1791809,13.1860986 18.1471473,13.287853 L16.3403333,18.8266167 C16.0783106,19.5012544 15.4036423,19.9432488 14.6567374,19.9295884 C13.9098324,19.915928 13.2530282,19.4495818 13.0177202,18.7658483 L10.3561926,9.20532122 C10.3224612,9.0828362 10.2066255,8.99820016 10.075223,9.00002907 C9.94382048,9.00185799 9.83056595,9.0896826 9.8005142,9.21305538 C9.53809432,10.6490488 9.07561673,12.0442508 8.42563983,13.3607751 C7.81040896,14.4321066 6.59978897,15.0547797 5.33446397,14.9506975 L0.286383595,14.9506975 C0.200836429,14.9508269 0.119789989,14.987678 0.0652579686,15.0512416 C0.0105052402,15.1148427 -0.011403821,15.1989481 0.00568007946,15.2799517 C1.26517458,21.5063521 6.92177656,26 13.500072,26 C20.0783674,26 25.7349694,21.5063521 26.9944639,15.2799517 C27.0112295,15.1987308 26.9894777,15.1145345 26.935158,15.050392 C26.8808383,14.9862496 26.7996356,14.9488738 26.7137603,14.9484877 C23.5217604,14.9499609 21.9257604,14.9506975 21.9257604,14.9506975 Z" opacity="0.539999962"></path>
+                        <path d="M5.48262697,13.1162874 C6.53570764,13.1162874 6.62233928,13.1162874 7.63604194,9.25361392 C7.86780969,8.37139838 8.14008055,7.33311522 8.48548201,6.11058557 C8.7087856,5.42413873 9.37946641,4.96506482 10.1258577,4.98776578 C10.8742462,4.96784002 11.5440567,5.43246093 11.761733,6.1225074 L14.4619398,15.7986995 C14.4940991,15.9151627 14.6022445,15.9971672 14.7273152,15.9999282 C14.8523859,16.0026893 14.9643174,15.9255432 15.0019812,15.8106214 L16.5152221,11.1654422 C16.7421482,10.5403405 17.3447552,10.1140124 18.0318383,10.0924774 C18.6964712,10.0434044 19.3301356,10.3708193 19.6553377,10.9313408 C19.7678463,11.1405147 19.8803549,11.3453535 19.9759873,11.5426056 C20.6296623,12.8128226 20.8198019,13.1119522 21.7761252,13.1119522 L26.7186288,13.1119522 C26.7943575,13.1119652 26.8669186,13.0826781 26.9200192,13.030667 C26.9730799,12.97881 27.0019231,12.9083695 26.9999003,12.8355824 C26.9032945,5.71885474 20.8862135,-0.00118613704 13.4977698,1.84496545e-07 C6.10932623,0.00118650603 0.0942250201,5.72315932 8.19668591e-05,12.8399177 C-0.00175692205,12.9131783 0.0274115935,12.9840093 0.080884445,13.0361333 C0.134357296,13.0882573 0.207535985,13.1171917 0.283603687,13.1162874 L5.48262697,13.1162874 Z"></path>
                     </g>
                 </svg>
 
+                <span class="ml-2">MNPS</span>
             </a>
         </div>
 
         <div class="card card-body">
 
 
-            <div class="alert alert-soft-success d-flex" role="alert">
+            <!-- <div class="alert alert-soft-success d-flex" role="alert">
                 <i class="material-icons mr-3">check_circle</i>
                 <div class="text-body">An email with password reset instructions has been sent to your email address, if it exists on our system.</div>
-            </div>
+            </div> -->
 
-            <a href="" class="btn btn-light btn-block">
+            <!-- <a href="" class="btn btn-light btn-block">
                 <span class="mr-2">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" class="abcRioButtonSvg">
                         <g>
@@ -76,17 +92,17 @@
                     </svg>
                 </span>
                 Continue with Google
-            </a>
+            </a> -->
 
-            <div class="page-separator">
+            <!-- <div class="page-separator">
                 <div class="page-separator__text">or</div>
-            </div>
+            </div> -->
 
-            <form action="index.html" novalidate>
+            <form action="" novalidate method="POST">
                 <div class="form-group">
                     <label class="text-label" for="email_2">Email Address:</label>
                     <div class="input-group input-group-merge">
-                        <input id="email_2" type="email" required="" class="form-control form-control-prepended" placeholder="john@doe.com">
+                        <input id="email_2" type="email" name="email" required="" class="form-control form-control-prepended" placeholder="john@doe.com">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="far fa-envelope"></span>
@@ -97,7 +113,7 @@
                 <div class="form-group">
                     <label class="text-label" for="password_2">Password:</label>
                     <div class="input-group input-group-merge">
-                        <input id="password_2" type="password" required="" class="form-control form-control-prepended" placeholder="Enter your password">
+                        <input id="password_2" type="password" name="password" required="" class="form-control form-control-prepended" placeholder="Enter your password">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="fa fa-key"></span>
@@ -105,19 +121,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group mb-1">
-                    <button class="btn btn-block btn-primary" type="submit">Login</button>
+                <div class="form-group">
+                    <button class="btn btn-block btn-primary" name="submit" type="submit">Login</button>
                 </div>
-                <div class="form-group text-center">
+                <!-- <div class="form-group text-center">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" checked="" id="remember">
                         <label class="custom-control-label" for="remember">Remember me for 30 days</label>
                     </div>
-                </div>
-                <div class="form-group text-center mb-0">
+                </div> -->
+                <!-- <div class="form-group text-center">
                     <a href="">Forgot password?</a> <br>
-                    Don't have an account? <a class="text-underline" href="signup.html">Sign up</a>
-                </div>
+                    Don't have an account? <a class="text-body text-underline" href="signup.html">Sign up!</a>
+                </div> -->
             </form>
         </div>
     </div>
