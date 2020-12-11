@@ -16,224 +16,45 @@
             <div class="bg-secondary text-white d-flex justify-content-center align-items-center p-4 mb-4" style="height:400px">
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-lg-left">
                     <div class="mr-lg-4 mb-4 mb-lg-0">
-                        <img src="assets/images/256_jeremy-banks-798787-unsplash.jpg" class="rounded-circle" width="200" alt="Frontted">
+                        <div style="width: 180px; height: 180px; border-radius: 300px; background-image: url(../assets/images/teachers/<?= $details['t_image']; ?>); background-size: cover; background-position: center;">
+
+                        </div>
+                        <!-- <img src="../assets/images/teachers/<?= $details['t_image']; ?>" class="rounded-circle" width="200" alt="Frontted"> -->
                     </div>
                     <div>
-                        <h1 class="mb-lg-4">Adrian Demian</h1>
-                        <p class="mb-lg-4">Adrian Demian works for frontted developing Bootstrap 4 Admin Templates.</p>
-                        <a href="#" class="mr-3 text-white text-underline">https://www.frontted.com</a> <i class="fab fa-twitter"></i>
+                        <h1 class="mb-lg-4"><?= $details['teacher_name']; ?></h1>
+                        <p class="mb-lg-4"><?= $details['teacher_name']; ?> Modern Nursery and Primry School.</p>
+                        <a href="https://modern.com" class="mr-3 text-white text-underline">modern.com</a>
                     </div>
                 </div>
 
             </div>
 
             <div class="container-fluid page__container">
-                <h4 class="mb-4">Adrian's Courses</h4>
+                <h4 class="mb-4"><?= $details['teacher_name']; ?> Courses</h4>
 
                 <div class="row">
 
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/react.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">React</span>
-                                    <span class="course__subtitle">Learn the Basics</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
 
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/vuejs.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">Vue.js</span>
-                                    <span class="course__subtitle">Quick Tips</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    $subjects = where("subjects", "subject_teacher_fk", $teacherId);
+                    foreach ($subjects as $subject) {
+                        extract($subject); ?>
 
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/angular.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">Angular</span>
-                                    <span class="course__subtitle">Back to Basics</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
+                        <div class="col-md-3">
+                            <div class="card card__course shadow">
+                                <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
+                                    <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
+                                        <span><img src="assets/images/logos/react.svg" class="mb-1" style="width:34px;" alt="logo"></span>
+                                        <span class="course__title"><?= $subject_name; ?></span>
+                                        <span class="course__subtitle"><?= $subject_name; ?></span>
+                                    </a>
                                 </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/javascript.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">Javascript</span>
-                                    <span class="course__subtitle">ES6 and Beyond</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/node.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">Node</span>
-                                    <span class="course__subtitle">ES6 and Beyond</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/gitlab.png" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">Gitlab</span>
-                                    <span class="course__subtitle">Git Workflows</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card card__course">
-                            <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
-                                    <span><img src="assets/images/logos/angular.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                    <span class="course__title">Angular</span>
-                                    <span class="course__subtitle">Typescript and Beyond</span>
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="mb-2">
-                                    <span class="mr-2">
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                        <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                    </span>
-                                    <strong>4.7</strong><br />
-                                    <small class="text-muted">(391 ratings)</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <strong class="h4 m-0">$49</strong>
-                                    <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
             </div>
@@ -245,31 +66,6 @@
         <div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="start">
             <div class="mdk-drawer__content">
                 <div class="sidebar sidebar-light sidebar-left bg-white" data-perfect-scrollbar>
-
-
-                    <div class="sidebar-block p-0 m-0">
-                        <div class="d-flex align-items-center sidebar-p-a border-bottom bg-light">
-                            <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
-                                <span class="avatar avatar-sm mr-2">
-                                    <span class="avatar-title rounded-circle bg-soft-secondary text-muted">AD</span>
-                                </span>
-                                <span class="flex d-flex flex-column">
-                                    <strong>Adrian Demian</strong>
-                                    <small class="text-muted text-uppercase">Instructor</small>
-                                </span>
-                            </a>
-                            <div class="dropdown ml-auto">
-                                <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="student-dashboard.html">Dashboard</a>
-                                    <a class="dropdown-item" href="student-profile.html">My profile</a>
-                                    <a class="dropdown-item" href="student-edit-account.html">Edit account</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" rel="nofollow" data-method="delete" href="login.html">Logout</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <?php require_once 'inc/navigation.php'; ?>
 

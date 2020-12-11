@@ -1,13 +1,14 @@
 <?php
 // error_reporting(0);
 require_once '../admin/inc/functions/config.php';
-if (isset($_SESSION['teacherId'])) {
-    $active_teacher_id = $_SESSION['teacherId'];
-}
+blockUrlHackers('studentId', 'login');
+blockUrlHackers('cardSet', 'card-login');
 
 ?>
 
-<?php require_once 'inc/header.php'; ?>
+<?php
+$pageHeader = "Student Result";
+require_once 'inc/header.php'; ?>
 
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content">
@@ -19,8 +20,8 @@ if (isset($_SESSION['teacherId'])) {
 
             <div class="container-fluid page__heading-container">
                 <div class="page__heading d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
-                    <h1 class="m-lg-0">Manage Student Result</h1>
-                    <a href="compile" class="btn btn-dark shadow"><i class="material-icons">arrow_forward</i> compile Results</a>
+                    <h1 class="m-lg-0">Student Result</h1>
+                    <a href="index" class="btn btn-dark shadow"><i class="material-icons">arrow_forward</i> Home</a>
 
                 </div>
             </div>
@@ -35,20 +36,21 @@ if (isset($_SESSION['teacherId'])) {
                 <div class="row">
 
                     <div class="col-lg-12">
-                        <table id="myTable" class="table table-light table-responsive-sm table-responsive-md shadow">
+                        <table class="table table-light table-responsive-sm table-responsive-md shadow">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Student Name</th>
-                                    <th>Class</th>
-                                    <th>Reg Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Subject</th>
+                                    <th>1<sup>st</sup> Test</th>
+                                    <th>2<sup>nd</sup> Test</th>
+                                    <th>Examination</th>
+                                    <th>Total Mark</th>
+                                    <th>Grade</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <?php
-                                $results = where("results", "teacher_id_fk", $active_teacher_id);
+                                // $results = where("results", "teacher_id_fk", $active_teacher_id);
                                 if (!empty($results)) {
                                     foreach ($results as $result) {
                                         extract($result);

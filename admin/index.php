@@ -26,7 +26,7 @@ $classes = fetchAll("classes");
         <div class="row">
             <div class="col-lg">
                 <div class="row card-group-row">
-                    <div class="col-lg-6 card-group-row__col">
+                    <div class="col-lg-4 card-group-row__col">
                         <div class="card card-group-row__card card-body card-body-x-lg shadow" style="position: relative; padding-bottom: calc(80px - 1.25rem); overflow: hidden; z-index: 0;">
                             <div class="card-header__title text-muted mb-2">Number of Students</div>
                             <div class="text-amount font-weight-bold"><?= getTotal("students", null, null); ?></div>
@@ -35,12 +35,27 @@ $classes = fetchAll("classes");
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 card-group-row__col">
+                    <div class="col-lg-4 card-group-row__col">
                         <div class="card card-group-row__card card-body card-body-x-lg shadow" style="position: relative; padding-bottom: calc(80px - 1.25rem); overflow: hidden; z-index: 0;">
                             <div class="card-header__title text-muted mb-2">Number of Teachers</div>
                             <div class="text-amount font-weight-bold"><?= getTotal("teachers", null, null); ?></div>
                             <div class="chart" style="height: 80px; position: absolute; left: 0; right: 0; bottom: 0;">
                                 <!-- <p class="mt-5 ml-3 text-secondary">Modern School Nursery & Primary School</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 card-group-row__col">
+                        <div class="card card-group-row__card card-body card-body-x-lg shadow" style="position: relative; padding-bottom: calc(80px - 1.25rem); overflow: hidden; z-index: 0;">
+                            <div class="card-header__title text-muted mb-2">Active Academic Year</div>
+                            <?php
+                            $active_acad = where("academic_years", "active", 1);
+                            foreach ($active_acad as $active) {
+                            }
+                            ?>
+                            <div class="text-amount font-weight-bold"><?php if (isset($active['academic_year'])) : echo $active['academic_year'];
+                                                                        endif; ?></div>
+                            <div class="chart" style="height: 80px; position: absolute; left: 0; right: 0; bottom: 0;">
+                                <p class="mt-5 ml-3 text-info">Refresh your page when you change</p>
                             </div>
                         </div>
                     </div>
@@ -107,7 +122,7 @@ $classes = fetchAll("classes");
                                     </td>
 
                                     <td><?= $email; ?></td>
-                                    <td><?= $tel; ?></td>
+                                    <td><a href="tel: <?= $tel; ?>"><?= $tel; ?></a></td>
                                     <td>
                                         <div class="media align-items-center">
                                             <?php

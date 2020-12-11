@@ -34,6 +34,19 @@ if (isset($_POST['submit-acad'])) {
         }
     }
 }
+
+if (isset($_POST['setYear'])) {
+    $response = setAcadYear($_POST);
+
+    if ($response === true) {
+        echo "<script>alert('Academic Year Set')</script>";
+    } else {
+        $errors = $response;
+        foreach ($errors as $err) {
+            echo "<script>alert('$err')</script>";
+        }
+    }
+}
 ?>
 
 
@@ -91,12 +104,12 @@ if (isset($_POST['submit-acad'])) {
                             <span class="sidebar-menu-text">Add New Academic Year</span>
                         </a>
                     </li>
-                    <!-- <li class="sidebar-menu-item">
+                    <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal2">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">comment</i>
-                            <span class="sidebar-menu-text">Add Students</span>
+                            <span class="sidebar-menu-text">Set Academic Year</span>
                         </a>
-                    </li> -->
+                    </li>
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" href="pending">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">local_offer</i>
@@ -159,7 +172,7 @@ if (isset($_POST['submit-acad'])) {
     <div class="modal-dialog shadow" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Student</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Set Acad Year</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -168,14 +181,17 @@ if (isset($_POST['submit-acad'])) {
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="news-title">Title</label>
-                        <input type="text" class="form-control" id="news-title" placeholder="Enter news title">
-                        <small id="emailHelp" class="form-text text-muted">The title that will be displayed.</small>
+                        <select name="acadYear" required id="" class="form-control">
+                            <option selected disabled value="">Select Year</option>
+                            <?php
+                            $years = fetchAllDesc("academic_years");
+                            foreach ($years as $year) { ?>
+                                <option value="<?= $year['id'] ?>"><?= $year['academic_year'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="body">News Content</label>
-                        <textarea name="" class="form-control" id="body" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores asperiores itaque in laborum sapiente, ducimus libero voluptates iure a dolore maxime, accusamus dolorem corporis, impedit dolor labore repellendus. Quae, nisi."></textarea>
-                    </div>
-                    <input type="submit" name="submit-students" class="btn btn-primary" value="SUBMIT">
+
+                    <input type="submit" name="setYear" class="btn btn-primary" value="Set Year">
                 </form>
             </div>
             <div class="modal-footer">
@@ -199,7 +215,8 @@ if (isset($_POST['submit-acad'])) {
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="cname">Class</label>
-                        <input type="text" name="cname" class="form-control" id="cname" placeholder="Enter Class Name">
+                        <input type="text" name="cname" class="form-control" id="cname" placeholder="E.g Basic Four">
+                        <small id="emailHelp" class="form-text text-muted">Please type it in this format: Basic Four</small>
                     </div>
                     <button type="submit" name="submit-class" class="btn btn-primary">Add Class</button>
                 </form>

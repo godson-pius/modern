@@ -94,9 +94,9 @@
                 Continue with Google
             </a> -->
 
-            <!-- <div class="page-separator">
-                <div class="page-separator__text">or</div>
-            </div> -->
+            <div class="page-separator">
+                <div class="page-separator__text">Admin Login</div>
+            </div>
 
             <form action="" novalidate method="POST">
                 <div class="form-group">

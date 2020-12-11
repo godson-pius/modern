@@ -12,3 +12,4 @@ require_once "db.php";
 require_once "helpers.php";
 require_once "actions.php";
 require_once "teacher-actions.php";
+require_once "student-actions.php";

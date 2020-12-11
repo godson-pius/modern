@@ -309,3 +309,14 @@ function teacherAction($table, $field, $stats, $col, $id)
         return false;
     }
 }
+
+function whereQueryWithAnd($table, $field1, $value1, $field2, $value2) {
+    $sql = "SELECT * FROM $table WHERE $field1 = $value1 AND $field2 = $value2";
+    $result = executeQuery($sql);
+
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}

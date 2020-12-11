@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Courses</title>
+    <title>Series</title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
@@ -95,9 +95,9 @@
                                         </svg></span>
                                     Switch Layout</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item active" href="student-courses.html">Admin</a>
-                                    <a class="dropdown-item" href="fluid-student-courses.html">Full Width</a>
-                                    <a class="dropdown-item" href="fixed-student-courses.html">Fixed</a>
+                                    <a class="dropdown-item active" href="instructor-earnings.html">Admin</a>
+                                    <a class="dropdown-item" href="fluid-instructor-earnings.html">Full Width</a>
+                                    <a class="dropdown-item" href="fixed-instructor-earnings.html">Fixed</a>
                                 </div>
                             </li>
                         </ul>
@@ -324,12 +324,9 @@
 
 
 
-
-
                     <div class="container-fluid page__heading-container">
                         <div class="page__heading d-flex align-items-center justify-content-between">
-                            <h1 class="m-0">Courses</h1>
-                            <a href="" class="btn btn-success ml-3">Go to Courses <i class="material-icons">arrow_forward</i></a>
+                            <h1 class="m-0">Earnings</h1>
                         </div>
                     </div>
 
@@ -338,258 +335,95 @@
 
 
                     <div class="container-fluid page__container">
-                        <form action="#" class="">
-                            <div class="d-lg-flex">
-                                <div class="search-form mb-3 mr-3-lg search-form--light">
-                                    <input type="text" class="form-control" placeholder="Search courses" id="searchSample02">
-                                    <button class="btn" type="button"><i class="material-icons">search</i></button>
-                                </div>
 
-                                <div class="form-inline  mb-3 ml-auto">
-                                    <div class="form-group mr-3">
-                                        <label for="custom-select" class="form-label mr-1">Category</label>
-                                        <select id="custom-select" class="form-control custom-select" style="width: 200px;">
-                                            <option selected>All categories</option>
-                                            <option value="1">Vue.js</option>
-                                            <option value="2">Node.js</option>
-                                            <option value="3">GitHub</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="published01" class="form-label mr-1">Status</label>
-                                        <select id="published01" class="form-control custom-select" style="width: 200px;">
-                                            <option selected>All</option>
-                                            <option value="1">In Progress</option>
-                                            <option value="3">New Releases</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-                        <div class="row">
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/react.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">React</span>
-                                            <span class="course__subtitle">Learn the Basics</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
+                        <div class="row card-group-row">
+                            <div class="col-lg-4 col-md-5 card-group-row__col">
+                                <div class="card card-group-row__card">
+                                    <div class="card-header card-header-large bg-light d-flex align-items-center">
+                                        <div class="flex">
+                                            <h4 class="card-header__title">Current Balance</h4>
+                                            <div class="card-subtitle text-muted">This billing cycle</div>
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
+                                        <div class="dropdown ml-auto">
+                                            <a href="#" data-toggle="dropdown" data-caret="false" class="text-dark-gray"><i class="material-icons">more_horiz</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="javascript:void(0)" class="dropdown-item">Go to Report</a>
+                                                <a href="javascript:void(0)" class="dropdown-item">Next Cycle</a>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center justify-content-center h-250">
+                                        <div class="chart z-0 dashboard-chart">
+                                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                                <div class="text-muted mb-1">Next payout</div>
+                                                <div class="card-header__title">15.09.2019</div>
+                                            </div>
+                                            <canvas class="position-relative chartjs-render-monitor" id="billingChart" width="420" height="420" style="display: block; height: 210px; width: 210px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-0 text-center">
+                                        <div class="text-amount mb-1">$37,290</div>
+                                        <div class="text-muted">Current balance this billing cycle</div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/vuejs.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">Vue.js</span>
-                                            <span class="course__subtitle">Quick Tips</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
+                            <div class="col-lg-8 col-md-7 card-group-row__col">
+                                <div class="card card-group-row__card">
+                                    <div class="card-header card-header-large bg-light d-flex align-items-center">
+                                        <div class="flex">
+                                            <h4 class="card-header__title">Purchases</h4>
+                                            <div class="card-subtitle text-muted">This billing cycle</div>
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
+                                        <div class="dropdown ml-auto">
+                                            <a href="#" data-toggle="dropdown" data-caret="false" class="text-dark-gray"><i class="material-icons">more_horiz</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="javascript:void(0)" class="dropdown-item">Action</a>
+                                                <a href="javascript:void(0)" class="dropdown-item">Other Action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="javascript:void(0)" class="dropdown-item">Some Other Action</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/angular.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">Angular</span>
-                                            <span class="course__subtitle">Back to Basics</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="chart w-100" style="height: calc(328px - 1.25rem * 2);">
+                                            <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="transactionsChart" width="1402" height="576" class="chartjs-render-monitor" style="display: block; height: 288px; width: 701px;"></canvas>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/javascript.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">Javascript</span>
-                                            <span class="course__subtitle">ES6 and Beyond</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/node.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">Node</span>
-                                            <span class="course__subtitle">ES6 and Beyond</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/gitlab.png" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">Gitlab</span>
-                                            <span class="course__subtitle">Git Workflows</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card card__course">
-                                    <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
-                                        <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="student-course.html">
-                                            <span><img src="assets/images/logos/angular.svg" class="mb-1" style="width:34px;" alt="logo"></span>
-                                            <span class="course__title">Angular</span>
-                                            <span class="course__subtitle">Typescript and Beyond</span>
-                                        </a>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="mb-2">
-                                            <span class="mr-2">
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star</i></a>
-                                                <a href="#" class="rating-link active"><i class="material-icons icon-16pt">star_half</i></a>
-                                            </span>
-                                            <strong>4.7</strong><br />
-                                            <small class="text-muted">(391 ratings)</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <strong class="h4 m-0">$49</strong>
-                                            <a href="#" class="btn btn-primary ml-auto"><i class="material-icons">add_shopping_cart</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <hr>
-                        <div class="d-flex flex-row align-items-center mb-3">
-                            <div class="form-inline">
-                                View
-                                <select class="custom-select ml-2">
-                                    <option value="20" selected>20</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                    <option value="200">200</option>
-                                </select>
-                            </div>
-                            <div class="ml-auto">
-                                20 <span class="text-muted">of 100</span> <a href="#" class="icon-muted"><i class="material-icons float-right">arrow_forward</i></a>
                             </div>
                         </div>
 
+
+                        <div class="card">
+                            <div class="card-header card-header-large bg-white">
+                                <h4 class="card-header__title">Current Students</h4>
+                            </div>
+                            <div class="card-header">
+                                <form class="form-inline">
+                                    <label class="mr-sm-2" for="inlineFormFilterBy">Filter by:</label>
+                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormFilterBy" placeholder="Type a name">
+
+                                    <label class="sr-only" for="inlineFormRole">Course</label>
+                                    <select id="inlineFormRole" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                                        <option value="Courses">All Courses</option>
+                                        <option value="Courses">Angular</option>
+                                    </select>
+
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
+
+
 
 
                 </div>
@@ -631,7 +465,7 @@
   <ul class="sidebar-menu mt-0 mb-4">
 
       <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="fixed-student-courses.html">
+        <a class="sidebar-menu-button" href="fixed-instructor-earnings.html">
           <span class="sidebar-menu-icon sidebar-menu-icon--left">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 40 40" width="22" height="22"><g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)"><path d="M5.5,9.251h2c0.552,0,1,0.448,1,1v1c0,0.552-0.448,1-1,1h-2c-0.552,0-1-0.448-1-1v-1C4.5,9.699,4.948,9.251,5.5,9.251z M5.5,14.251h2c0.552,0,1,0.448,1,1v1c0,0.552-0.448,1-1,1h-2c-0.552,0-1-0.448-1-1v-1C4.5,14.699,4.948,14.251,5.5,14.251z M11,11.5h8.5c0.414,0,0.75-0.336,0.75-0.75S19.914,10,19.5,10H11c-0.414,0-0.75,0.336-0.75,0.75S10.586,11.5,11,11.5z M11,16.5 h8.5c0.414,0,0.75-0.336,0.75-0.75S19.914,15,19.5,15H11c-0.414,0-0.75,0.336-0.75,0.75S10.586,16.5,11,16.5z M24,4.751 c0-1.657-1.343-3-3-3H3c-1.657,0-3,1.343-3,3v14.5c0,1.657,1.343,3,3,3h18c1.657,0,3-1.343,3-3V4.751z M9.654,3.751 c0.258-0.467,0.845-0.637,1.312-0.38c0.16,0.088,0.292,0.22,0.38,0.38c0.096,0.149,0.149,0.322,0.154,0.5 c-0.005,0.178-0.058,0.351-0.154,0.5c-0.258,0.467-0.845,0.637-1.312,0.38c-0.16-0.088-0.292-0.22-0.38-0.38 C9.558,4.602,9.505,4.429,9.5,4.251C9.505,4.073,9.558,3.9,9.654,3.751z M6.154,3.751c0.258-0.467,0.845-0.637,1.312-0.38 c0.16,0.088,0.292,0.22,0.38,0.38C7.942,3.9,7.995,4.073,8,4.251c-0.005,0.178-0.058,0.351-0.154,0.5 c-0.258,0.467-0.845,0.637-1.312,0.38c-0.16-0.088-0.292-0.22-0.38-0.38C6.058,4.602,6.005,4.429,6,4.251 C6.005,4.073,6.058,3.9,6.154,3.751z M2.592,3.842C2.752,3.484,3.108,3.253,3.5,3.251c0.351,0.004,0.674,0.194,0.846,0.5 C4.442,3.9,4.495,4.073,4.5,4.251c-0.005,0.178-0.058,0.351-0.154,0.5c-0.258,0.467-0.845,0.637-1.312,0.38 c-0.16-0.088-0.292-0.22-0.38-0.38C2.558,4.602,2.505,4.429,2.5,4.251C2.501,4.11,2.532,3.97,2.592,3.842z M22,19.251 c0,0.552-0.448,1-1,1H3c-0.552,0-1-0.448-1-1V7c0-0.138,0.112-0.25,0.25-0.25h19.5C21.888,6.75,22,6.862,22,7V19.251z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
           </span>
@@ -647,7 +481,7 @@
         </a>
       </li>
       <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="fluid-student-courses.html">
+        <a class="sidebar-menu-button" href="fluid-instructor-earnings.html">
           <span class="sidebar-menu-icon sidebar-menu-icon--left">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 40 40" width="22" height="22"><g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)"><path d="M5,9.751h2c0.276,0,0.5,0.224,0.5,0.5v2c0,0.276-0.224,0.5-0.5,0.5H5c-0.276,0-0.5-0.224-0.5-0.5v-2 C4.5,9.975,4.724,9.751,5,9.751z M5,14.751h2c0.276,0,0.5,0.224,0.5,0.5v2c0,0.276-0.224,0.5-0.5,0.5H5c-0.276,0-0.5-0.224-0.5-0.5 v-2C4.5,14.975,4.724,14.751,5,14.751z M11,9.751h2c0.276,0,0.5,0.224,0.5,0.5v2c0,0.276-0.224,0.5-0.5,0.5h-2 c-0.276,0-0.5-0.224-0.5-0.5v-2C10.5,9.975,10.724,9.751,11,9.751z M11,14.751h2c0.276,0,0.5,0.224,0.5,0.5v2 c0,0.276-0.224,0.5-0.5,0.5h-2c-0.276,0-0.5-0.224-0.5-0.5v-2C10.5,14.975,10.724,14.751,11,14.751z M17,9.751h2 c0.276,0,0.5,0.224,0.5,0.5v2c0,0.276-0.224,0.5-0.5,0.5h-2c-0.276,0-0.5-0.224-0.5-0.5v-2C16.5,9.975,16.724,9.751,17,9.751z M17,14.751h2c0.276,0,0.5,0.224,0.5,0.5v2c0,0.276-0.224,0.5-0.5,0.5h-2c-0.276,0-0.5-0.224-0.5-0.5v-2 C16.5,14.975,16.724,14.751,17,14.751z M24,4.751c0-1.657-1.343-3-3-3H3c-1.657,0-3,1.343-3,3v14.5c0,1.657,1.343,3,3,3h18 c1.657,0,3-1.343,3-3V4.751z M9.654,3.751c0.258-0.467,0.845-0.637,1.312-0.38c0.16,0.088,0.292,0.22,0.38,0.38 c0.096,0.149,0.149,0.322,0.154,0.5c-0.005,0.178-0.058,0.351-0.154,0.5c-0.258,0.467-0.845,0.637-1.312,0.38 c-0.16-0.088-0.292-0.22-0.38-0.38C9.558,4.602,9.505,4.429,9.5,4.251C9.505,4.073,9.558,3.9,9.654,3.751z M6.154,3.751 c0.258-0.467,0.845-0.637,1.312-0.38c0.16,0.088,0.292,0.22,0.38,0.38C7.942,3.9,7.995,4.073,8,4.251 c-0.005,0.178-0.058,0.351-0.154,0.5c-0.258,0.467-0.845,0.637-1.312,0.38c-0.16-0.088-0.292-0.22-0.38-0.38 C6.058,4.602,6.005,4.429,6,4.251C6.005,4.073,6.058,3.9,6.154,3.751z M2.592,3.842C2.752,3.484,3.108,3.253,3.5,3.251 c0.351,0.004,0.674,0.194,0.846,0.5C4.442,3.9,4.495,4.073,4.5,4.251c-0.005,0.178-0.058,0.351-0.154,0.5 c-0.258,0.467-0.845,0.637-1.312,0.38c-0.16-0.088-0.292-0.22-0.38-0.38C2.558,4.602,2.505,4.429,2.5,4.251 C2.501,4.11,2.532,3.97,2.592,3.842z M22,19.251c0,0.552-0.448,1-1,1H3c-0.552,0-1-0.448-1-1V7c0-0.138,0.112-0.25,0.25-0.25h19.5 C21.888,6.75,22,6.862,22,7V19.251z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
           </span>
@@ -689,7 +523,7 @@
                                         </a>
                                     </li>
 
-                                    <li class="sidebar-menu-item active">
+                                    <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="student-courses.html">
                                             <span class="sidebar-menu-icon sidebar-menu-icon--left">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
@@ -892,7 +726,7 @@
 
 
 
-                                    <li class="sidebar-menu-item">
+                                    <li class="sidebar-menu-item active">
                                         <a class="sidebar-menu-button" href="instructor-earnings.html">
                                             <span class="sidebar-menu-icon sidebar-menu-icon--left">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
@@ -1278,10 +1112,10 @@
     <!-- App Settings FAB -->
     <div id="app-settings">
         <app-settings layout-active="default" :layout-location="{
-      'default': 'student-courses.html',
-      'fixed': 'fixed-student-courses.html',
-      'fluid': 'fluid-student-courses.html',
-      'mini': 'mini-student-courses.html'
+      'default': 'instructor-earnings.html',
+      'fixed': 'fixed-instructor-earnings.html',
+      'fluid': 'fluid-instructor-earnings.html',
+      'mini': 'mini-instructor-earnings.html'
     }"></app-settings>
     </div>
 
@@ -1316,7 +1150,27 @@
     <script src="assets/js/app-settings.js"></script>
 
 
+    <!-- Flatpickr -->
+    <script src="assets/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
 
+    <!-- Global Settings -->
+    <script src="assets/js/settings.js"></script>
+
+    <!-- Chart.js -->
+    <script src="assets/vendor/Chart.min.js"></script>
+
+    <!-- App Charts JS -->
+    <script src="assets/js/chartjs-rounded-bar.js"></script>
+    <script src="assets/js/charts.js"></script>
+
+    <!-- Vector Maps -->
+    <script src="assets/vendor/jqvmap/jquery.vmap.min.js"></script>
+    <script src="assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="assets/js/vector-maps.js"></script>
+
+    <!-- Chart Samples -->
+    <script src="assets/js/page.dashboard.js"></script>
 
 </body>
 

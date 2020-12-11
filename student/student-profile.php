@@ -1,3 +1,89 @@
+<?php
+$pageHeader = "Student Profile";
+require_once 'inc/header.php'; ?>
+
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content">
+
+    <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+        <div class="mdk-drawer-layout__content page">
+
+
+
+
+
+
+
+
+            <div class="bg-secondary text-white d-flex justify-content-center align-items-center p-4 mb-4" style="height:400px">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-lg-left">
+                    <div class="mr-lg-4 mb-4 mb-lg-0">
+                        <div class="shadow" style="width: 180px; height: 180px; border-radius: 300px; background-image: url(../assets/images/students/<?= $details['image']; ?>); background-size: cover; background-position: center;">
+
+                        </div>
+                        <!-- <img src="../assets/images/teachers/<?= $details['image']; ?>" class="rounded-circle" width="200" alt="Frontted"> -->
+                    </div>
+                    <div>
+                        <h1 class="mb-lg-4"><?= $details['name']; ?></h1>
+                        <p class="mb-lg-4"><?= $details['name']; ?> Modern Nursery and Primry School.</p>
+                        <a href="https://modern.com" class="mr-3 text-white text-underline">modern.com</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container-fluid page__container">
+                <h4 class="mb-4"><?= $details['name']; ?> Courses</h4>
+
+                <div class="row">
+
+                    <?php
+
+                    $subjects = where("subjects", "section_id_fk", $details['section_id_fk']);
+                    foreach ($subjects as $subject) {
+                        extract($subject); ?>
+
+                        <div class="col-md-3">
+                            <div class="card card__course shadow">
+                                <div class="card-header card-header-large card-header-dark bg-dark d-flex justify-content-center">
+                                    <a class="card-header__title  justify-content-center align-self-center d-flex flex-column" href="#">
+                                        <span><img src="assets/images/logos/react.svg" class="mb-1" style="width:34px;" alt="logo"></span>
+                                        <span class="course__title"><?= $subject_name; ?></span>
+                                        <span class="course__subtitle"><?= $subject_name; ?></span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <?php } ?>
+
+                </div>
+            </div>
+
+
+        </div>
+        <!-- // END drawer-layout__content -->
+
+        <div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="start">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-light sidebar-left bg-white" data-perfect-scrollbar>
+
+                    <?php require_once 'inc/navigation.php'; ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // END drawer-layout -->
+
+</div>
+<!-- // END header-layout__content -->
+
+</div>
+<!-- // END header-layout -->
+
+
 <div class="mdk-drawer js-mdk-drawer" id="events-drawer" data-align="end">
     <div class="mdk-drawer__content">
         <div class="sidebar sidebar-light sidebar-left" data-perfect-scrollbar>
@@ -156,3 +242,50 @@
         </div>
     </div>
 </div>
+
+<!-- App Settings FAB -->
+<div id="app-settings">
+    <app-settings layout-active="default" :layout-location="{
+      'default': 'instructor-profile.html',
+      'fixed': 'fixed-instructor-profile.html',
+      'fluid': 'fluid-instructor-profile.html',
+      'mini': 'mini-instructor-profile.html'
+    }"></app-settings>
+</div>
+
+<!-- jQuery -->
+<script src="assets/vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="assets/vendor/popper.min.js"></script>
+<script src="assets/vendor/bootstrap.min.js"></script>
+
+<!-- Perfect Scrollbar -->
+<script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+<!-- DOM Factory -->
+<script src="assets/vendor/dom-factory.js"></script>
+
+<!-- MDK -->
+<script src="assets/vendor/material-design-kit.js"></script>
+
+<!-- Range Slider -->
+<script src="assets/vendor/ion.rangeSlider.min.js"></script>
+<script src="assets/js/ion-rangeslider.js"></script>
+
+<!-- App -->
+<script src="assets/js/toggle-check-all.js"></script>
+<script src="assets/js/check-selected-row.js"></script>
+<script src="assets/js/dropdown.js"></script>
+<script src="assets/js/sidebar-mini.js"></script>
+<script src="assets/js/app.js"></script>
+
+<!-- App Settings (safe to remove) -->
+<script src="assets/js/app-settings.js"></script>
+
+
+
+
+</body>
+
+</html>

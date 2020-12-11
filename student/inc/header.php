@@ -1,3 +1,16 @@
+<?php
+// error_reporting(0);
+require_once '../admin/inc/functions/config.php';
+if (isset($_SESSION['studentId'])) {
+    $studentId = $_SESSION['studentId'];
+}
+
+$student_details = where("students", "id", $studentId);
+foreach ($student_details as $details) {
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -5,7 +18,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dashboard</title>
+    <title><?= $pageHeader; ?></title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
@@ -30,12 +43,24 @@
     <link type="text/css" href="assets/css/vendor-ion-rangeslider.rtl.css" rel="stylesheet">
 
 
+    <!-- Flatpickr -->
+    <link type="text/css" href="assets/css/vendor-flatpickr.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/vendor-flatpickr.rtl.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/vendor-flatpickr-airbnb.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/vendor-flatpickr-airbnb.rtl.css" rel="stylesheet">
+
+    <!-- My Own Css -->
+    <link type="text/css" href="assets/css/my.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
 
 
 </head>
 
 <body class="layout-default">
+
 
     <!-- Header Layout -->
     <div class="mdk-header-layout js-mdk-header-layout">
@@ -73,19 +98,19 @@
 
 
 
-                        <ul class="ml-auto nav navbar-nav mr-2 d-none d-lg-flex">
+                        <!-- <ul class="ml-auto nav navbar-nav mr-2 d-none d-lg-flex">
                             <li class="nav-item"><a href="#" class="nav-link">Get Help</a></li>
-                        </ul>
+                        </ul> -->
 
 
-                        <form class="search-form search-form--light d-none d-sm-flex flex ml-3" action="index.html">
+                        <!-- <form class="search-form search-form--light d-none d-sm-flex flex ml-3" action="index.html">
                             <input type="text" class="form-control" placeholder="Search">
                             <button class="btn" type="submit"><i class="material-icons">search</i></button>
-                        </form>
+                        </form> -->
 
 
                         <ul class="nav navbar-nav d-none d-md-flex">
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a href="#notifications_menu" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
                                     <span class="nav-icon navbar-notifications-indicator">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="25" height="25">
@@ -114,13 +139,118 @@
                                                     <small class="text-muted">1 minute ago</small>
                                                 </div>
                                             </div>
-                                           
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <a href="#">
+                                                        <div class="avatar avatar-xs">
+                                                            <span class="avatar-title bg-primary rounded-circle"><i class="material-icons icon-16pt">person_add</i></span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="flex">
+                                                    New user <a href="#">Peter Parker</a> signed up.<br>
+                                                    <small class="text-muted">1 hour ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <a href="#">
+                                                        <div class="avatar avatar-xs">
+                                                            <span class="avatar-title rounded-circle">JD</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="flex">
+                                                    <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
+                                                    <div>Hey, how are you? What about our next meeting</div>
+                                                    <small class="text-muted">2 minutes ago</small>
+                                                </div>
+                                            </div>
+
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <div class="avatar avatar-xs">
+                                                        <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="flex">
+                                                    <a href="">A.Demian</a> left a comment on <a href="">Stack</a><br>
+                                                    <small class="text-muted">1 minute ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <a href="#">
+                                                        <div class="avatar avatar-xs">
+                                                            <span class="avatar-title bg-primary rounded-circle"><i class="material-icons icon-16pt">person_add</i></span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="flex">
+                                                    New user <a href="#">Peter Parker</a> signed up.<br>
+                                                    <small class="text-muted">1 hour ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <a href="#">
+                                                        <div class="avatar avatar-xs">
+                                                            <span class="avatar-title rounded-circle">JD</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="flex">
+                                                    <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
+                                                    <div>Hey, how are you? What about our next meeting</div>
+                                                    <small class="text-muted">2 minutes ago</small>
+                                                </div>
+                                            </div>
+
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <div class="avatar avatar-xs">
+                                                        <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="flex">
+                                                    <a href="">A.Demian</a> left a comment on <a href="">Stack</a><br>
+                                                    <small class="text-muted">1 minute ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <a href="#">
+                                                        <div class="avatar avatar-xs">
+                                                            <span class="avatar-title bg-primary rounded-circle"><i class="material-icons icon-16pt">person_add</i></span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="flex">
+                                                    New user <a href="#">Peter Parker</a> signed up.<br>
+                                                    <small class="text-muted">1 hour ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item d-flex">
+                                                <div class="mr-3">
+                                                    <a href="#">
+                                                        <div class="avatar avatar-xs">
+                                                            <span class="avatar-title rounded-circle">JD</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="flex">
+                                                    <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
+                                                    <div>Hey, how are you? What about our next meeting</div>
+                                                    <small class="text-muted">2 minutes ago</small>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <a href="javascript:void(0);" class="dropdown-item text-center navbar-notifications-menu__footer">View All</a>
                                 </div>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="#events-drawer" data-toggle="sidebar" class="nav-link d-flex align-items-center">
                                     <span class=" nav-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="25" height="25">
@@ -130,43 +260,33 @@
                                         </svg>
                                     </span>
                                 </a>
-                            </li>
-                            <!-- <li class="nav-item nav-item-circle">
-          <a href="#" class="nav-link d-flex align-items-center navbar-circle-link">
-          <span class="rounded-circle">
-            <span class="material-icons text-primary">flag</span>
-          </span>
-        </a>
-      </li> -->
+                            </li> -->
                         </ul>
 
                         <div class="dropdown">
                             <a href="#account_menu" class="dropdown-toggle navbar-toggler navbar-toggler-dashboard border-left d-flex align-items-center ml-navbar" data-toggle="dropdown">
-                                <img src="assets/images/avatar/demi.png" class="rounded-circle" width="32" alt="Frontted">
+                                <div style="background-image: url(../assets/images/teachers/<?= $details['image']; ?>); background-position: center; background-size: cover; width: 40px; height: 40px; border-radius: 100px;"></div>
                                 <span class="ml-1 d-flex-inline">
-                                    <span class="text-light">Adrian D.</span>
+                                    <span class="text-light"><?= $details['name']; ?></span>
                                 </span>
                             </a>
                             <div id="company_menu" class="dropdown-menu dropdown-menu-right navbar-company-menu">
                                 <div class="dropdown-item d-flex align-items-center py-2 navbar-company-info py-3">
 
                                     <span class="mr-3">
-                                        <img src="assets/images/frontted-logo-blue.svg" width="43" height="43" alt="avatar">
+                                        <div style="background-image: url(../assets/images/teachers/<?= $details['image']; ?>); background-position: center; background-size: cover; width: 43px; height: 43px; border-radius: 4px;"></div>
                                     </span>
                                     <span class="flex d-flex flex-column">
-                                        <strong class="h5 m-0">Adrian D.</strong>
+                                        <strong class="h5 m-0"><?= $details['name']; ?></strong>
                                         <small class="text-muted text-uppercase">STUDENT</small>
                                     </span>
 
                                 </div>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item d-flex align-items-center py-2" href="student-edit-account.html">
-                                    <span class="material-icons mr-2">account_circle</span> Edit Account
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center py-2" href="#">
+                                <a class="dropdown-item d-flex align-items-center py-2" href="settings">
                                     <span class="material-icons mr-2">settings</span> Settings
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center py-2" href="login.html">
+                                <a class="dropdown-item d-flex align-items-center py-2" href="logout">
                                     <span class="material-icons mr-2">exit_to_app</span> Logout
                                 </a>
                             </div>
@@ -177,3 +297,5 @@
 
             </div>
         </div>
+
+        <!-- // END Header -->

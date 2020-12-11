@@ -1,3 +1,16 @@
+<?php
+// error_reporting(0);
+require_once '../admin/inc/functions/config.php';
+if (isset($_SESSION['teacherId'])) {
+    $teacherId = $_SESSION['teacherId'];
+}
+
+$teacher_details = where("teachers", "id", $teacherId);
+foreach ($teacher_details as $details) {
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -85,19 +98,19 @@
 
 
 
-                        <ul class="ml-auto nav navbar-nav mr-2 d-none d-lg-flex">
+                        <!-- <ul class="ml-auto nav navbar-nav mr-2 d-none d-lg-flex">
                             <li class="nav-item"><a href="#" class="nav-link">Get Help</a></li>
-                        </ul>
+                        </ul> -->
 
 
-                        <form class="search-form search-form--light d-none d-sm-flex flex ml-3" action="index.html">
+                        <!-- <form class="search-form search-form--light d-none d-sm-flex flex ml-3" action="index.html">
                             <input type="text" class="form-control" placeholder="Search">
                             <button class="btn" type="submit"><i class="material-icons">search</i></button>
-                        </form>
+                        </form> -->
 
 
                         <ul class="nav navbar-nav d-none d-md-flex">
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a href="#notifications_menu" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
                                     <span class="nav-icon navbar-notifications-indicator">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="25" height="25">
@@ -236,8 +249,8 @@
                                     </div>
                                     <a href="javascript:void(0);" class="dropdown-item text-center navbar-notifications-menu__footer">View All</a>
                                 </div>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="#events-drawer" data-toggle="sidebar" class="nav-link d-flex align-items-center">
                                     <span class=" nav-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="25" height="25">
@@ -247,40 +260,30 @@
                                         </svg>
                                     </span>
                                 </a>
-                            </li>
-                            <!-- <li class="nav-item nav-item-circle">
-          <a href="#" class="nav-link d-flex align-items-center navbar-circle-link">
-          <span class="rounded-circle">
-            <span class="material-icons text-primary">flag</span>
-          </span>
-        </a>
-      </li> -->
+                            </li> -->
                         </ul>
 
                         <div class="dropdown">
                             <a href="#account_menu" class="dropdown-toggle navbar-toggler navbar-toggler-dashboard border-left d-flex align-items-center ml-navbar" data-toggle="dropdown">
-                                <img src="assets/images/avatar/demi.png" class="rounded-circle" width="32" alt="Frontted">
+                                <div style="background-image: url(../assets/images/teachers/<?= $details['t_image']; ?>); background-position: center; background-size: cover; width: 40px; height: 40px; border-radius: 100px;"></div>
                                 <span class="ml-1 d-flex-inline">
-                                    <span class="text-light">Adrian D.</span>
+                                    <span class="text-light"><?= $details['teacher_name']; ?></span>
                                 </span>
                             </a>
                             <div id="company_menu" class="dropdown-menu dropdown-menu-right navbar-company-menu">
                                 <div class="dropdown-item d-flex align-items-center py-2 navbar-company-info py-3">
 
                                     <span class="mr-3">
-                                        <img src="assets/images/frontted-logo-blue.svg" width="43" height="43" alt="avatar">
+                                        <div style="background-image: url(../assets/images/teachers/<?= $details['t_image']; ?>); background-position: center; background-size: cover; width: 43px; height: 43px; border-radius: 4px;"></div>
                                     </span>
                                     <span class="flex d-flex flex-column">
-                                        <strong class="h5 m-0">Adrian D.</strong>
+                                        <strong class="h5 m-0"><?= $details['teacher_name']; ?></strong>
                                         <small class="text-muted text-uppercase">STAFF</small>
                                     </span>
 
                                 </div>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item d-flex align-items-center py-2" href="student-edit-account.html">
-                                    <span class="material-icons mr-2">account_circle</span> Edit Account
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center py-2" href="#">
+                                <a class="dropdown-item d-flex align-items-center py-2" href="settings">
                                     <span class="material-icons mr-2">settings</span> Settings
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center py-2" href="logout">

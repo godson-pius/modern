@@ -249,3 +249,60 @@ function uploadResult($post)
         return $errors;
     }
 }
+
+function updateProfile($post) {
+    extract($post);
+    $errors = [];
+
+    $teacherId = $id;
+
+    if (!empty($fullname)) {
+        $fullname = sanitize($fullname);
+    } else {
+        $errors[] = "Name cannot be empty!";
+    }
+    
+    if (!empty($oldpassword)) {
+        $oldpassword = sanitize($oldpassword);
+
+        $sql = "SELECT * FROM teachers WHERE id = $teacherId";
+        $gettingDetails = executeQuery($sql);
+        if (!empty($gettingDetails)) {
+            $db_pwd = $gettingDetails['t_password'];
+            $check_pwd = decrypt($db_pwd, $oldpassword);
+            if ($check_pwd === true) {
+                if (!empty($newpassword)) {
+                    $new_pwd_tmp = sanitize($newpassword);
+                    $new_pwd = encrypt($new_pwd_tmp);
+
+                    $update_pwd = "UPDATE teachers SET t_password = '$new_pwd' WHERE id = $teacherId";
+                    $update_pwd_query = validateQuery($update_pwd);
+                }
+            } else {
+                $errors[] = "Incorrect Password";
+            }
+        }
+    }
+
+    if (isset($_FILES['pics'])) {
+        $pics = sanitize($_FILES['pics']['name']);
+        $tmp_pics = $_FILES['pics']['tmp_name'];
+        move_uploaded_file($tmp_pics, "../assets/images/teachers/$pics");
+    } else {
+        $errors[] = "Profile Image is empty" . "<br>";
+    }
+
+    if (!$errors) {
+        $update_profile = "UPDATE teachers SET teacher_name = '$fullname', t_image = '$pics' WHERE id = $teacherId";
+        $profile_query = validateQuery($update_profile);
+
+        if ($profile_query) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return $errors;
+    }
+    
+}

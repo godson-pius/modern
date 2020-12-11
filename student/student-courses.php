@@ -1,4 +1,6 @@
-<?php require_once 'inc/header.php'; ?>
+<?php
+$pageHeader = "Student Course";
+require_once 'inc/header.php'; ?>
 
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content">
@@ -10,7 +12,7 @@
 
             <div class="container-fluid page__heading-container">
                 <div class="page__heading d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
-                    <h1 class="m-lg-0">Instructor Subjects</h1>
+                    <h1 class="m-lg-0">Student Subjects</h1>
                     <!-- <a href="instructor-course-edit.html" class="btn btn-success ml-lg-3">New Course <i class="material-icons">add</i></a> -->
                 </div>
             </div>
@@ -25,7 +27,7 @@
 
                     <?php
 
-                    $subjects = where("subjects", "subject_teacher_fk", $teacherId);
+                    $subjects = where("subjects", "section_id_fk", $details['section_id_fk']);
                     foreach ($subjects as $subject) {
                         extract($subject); ?>
 

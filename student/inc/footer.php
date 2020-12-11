@@ -1,10 +1,10 @@
 <!-- App Settings FAB -->
 <div id="app-settings">
-    <app-settings layout-active="default" :layout-location="{
-      'default': 'student-dashboard.html',
-      'fixed': 'fixed-student-dashboard.html',
-      'fluid': 'fluid-student-dashboard.html',
-      'mini': 'mini-student-dashboard.html'
+  <app-settings layout-active="default" :layout-location="{
+      'default': 'instructor-dashboard.html',
+      'fixed': 'fixed-instructor-dashboard.html',
+      'fluid': 'fluid-instructor-dashboard.html',
+      'mini': 'mini-instructor-dashboard.html'
     }"></app-settings>
 </div>
 
@@ -39,7 +39,31 @@
 <script src="assets/js/app-settings.js"></script>
 
 
+<!-- Flatpickr -->
+<script src="assets/vendor/flatpickr/flatpickr.min.js"></script>
+<script src="assets/js/flatpickr.js"></script>
 
+<!-- Global Settings -->
+<script src="assets/js/settings.js"></script>
+
+
+<!-- Chart.js -->
+<script src="assets/vendor/Chart.min.js"></script>
+
+<!-- UI Charts Page JS -->
+<script src="assets/js/chartjs-rounded-bar.js"></script>
+<script src="assets/js/charts.js"></script>
+
+<!-- Chart.js Samples -->
+<script src="assets/js/page.instructor-dashboard.js"></script>
+
+<!-- DataTables Js -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+
+<!-- List.js -->
+<script src="assets/vendor/list.min.js"></script>
+<script src="assets/js/list.js"></script>
 
 </body>
 

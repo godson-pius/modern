@@ -23,7 +23,13 @@ if (isset($_SESSION['teacherId'])) {
             <div class="container-fluid page__heading-container">
                 <div class="page__heading d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
                     <h1 class="m-lg-0">Instructor Dashboard</h1>
-                    <a href="instructor-courses" class="btn btn-success ml-lg-3">Go to Courses <i class="material-icons">arrow_forward</i></a>
+                    <?php
+                    $active_acad = where("academic_years", "active", 1);
+                    foreach ($active_acad as $active) {
+                    }
+                    ?>
+                    <a href="instructor-courses" class="btn btn-info ml-lg-3 shadow">Active Year: <?php if (isset($active['academic_year'])) : echo $active['academic_year'];
+                                                                                                endif; ?></a>
                 </div>
             </div>
 
@@ -86,13 +92,13 @@ if (isset($_SESSION['teacherId'])) {
 
                         <div class="card">
                             <div class="card-header bg-white d-flex align-items-center">
-                                <h4 class="card-header__title mb-0">Earnings</h4>
+                                <h4 class="card-header__title mb-0">MNPS</h4>
                                 <div class="flatpickr-wrapper flatpickr-calendar-right d-flex ml-auto">
-                                    <h6 class="font-weight-bold"><?= date("d/m/Y")?></h6>
+                                    <h6 class="font-weight-bold"><?= date("d/m/Y") ?></h6>
                                 </div>
                             </div>
                             <div class="card-body">
-                                
+
                             </div>
                         </div>
 
@@ -117,7 +123,7 @@ if (isset($_SESSION['teacherId'])) {
                                     foreach ($subjects as $subject) {
                                         extract($subject);
 
-                                        $subject_teacher = where("teachers", "id", $subject_teacher_fk); 
+                                        $subject_teacher = where("teachers", "id", $subject_teacher_fk);
 
                                         if (!empty($subject_teacher)) {
                                             foreach ($subject_teacher as $teacher) {
@@ -137,14 +143,16 @@ if (isset($_SESSION['teacherId'])) {
                                                             <div class="d-flex align-items-center">
                                                                 <small class="text-muted"><?= $teacher_name; ?></small>
                                                             </div>
-                                          
+
                                                         </div>
 
                                                     </div>
                                                 </li>
 
-                                        <?php }
-                                } } } ?>
+                                <?php }
+                                        }
+                                    }
+                                } ?>
 
 
 
@@ -163,31 +171,6 @@ if (isset($_SESSION['teacherId'])) {
         <div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="start">
             <div class="mdk-drawer__content">
                 <div class="sidebar sidebar-light sidebar-left bg-white" data-perfect-scrollbar>
-
-
-                    <div class="sidebar-block p-0 m-0">
-                        <div class="d-flex align-items-center sidebar-p-a border-bottom bg-light">
-                            <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
-                                <span class="avatar avatar-sm mr-2">
-                                    <span class="avatar-title rounded-circle bg-soft-secondary text-muted">AD</span>
-                                </span>
-                                <span class="flex d-flex flex-column">
-                                    <strong>Adrian Demian</strong>
-                                    <small class="text-muted text-uppercase">Instructor</small>
-                                </span>
-                            </a>
-                            <div class="dropdown ml-auto">
-                                <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="student-dashboard.html">Dashboard</a>
-                                    <a class="dropdown-item" href="student-profile.html">My profile</a>
-                                    <a class="dropdown-item" href="student-edit-account.html">Edit account</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" rel="nofollow" data-method="delete" href="login.html">Logout</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <?php require_once 'inc/navigation.php'; ?>
 

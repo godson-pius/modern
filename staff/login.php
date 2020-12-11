@@ -94,9 +94,9 @@ if (isset($_POST['submit'])) {
                 Continue with Google
             </a> -->
 
-            <!-- <div class="page-separator">
-                <div class="page-separator__text">or</div>
-            </div> -->
+            <div class="page-separator">
+                <div class="page-separator__text">Staff Login</div>
+            </div>
 
             <form action="" novalidate method="POST">
                 <div class="form-group">
