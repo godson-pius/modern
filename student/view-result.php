@@ -50,41 +50,24 @@ require_once 'inc/header.php'; ?>
                             <tbody>
 
                                 <?php
-                                // $results = where("results", "teacher_id_fk", $active_teacher_id);
+                                $results = where("results", "student_id_fk", $details['id']);
                                 if (!empty($results)) {
                                     foreach ($results as $result) {
                                         extract($result);
-                                        $students = where("students", "id", $student_id_fk);
-                                        foreach ($students as $student) {
-                                            $class_id = $student['class_fk'];
-                                            $class = where("classes", "id", $class_id);
-                                            foreach ($class as $s_class) { ?>
+                                        $subjects = where("subjects", "id", $subject_id_fk);
+                                        foreach ($subjects as $subject) { ?>
 
                                                 <tr>
-                                                    <td><?= $student['name']; ?></td>
-                                                    <td><?= $s_class['class']; ?></td>
-                                                    <td><?= $student['date_registered']; ?></td>
-
-                                                    <td>
-                                                        <?php
-                                                        $access = $student['access'];
-                                                        if ($access == 0) {
-                                                            echo '<a class="btn btn-sm btn-danger shadow text-light">Not active</a>';
-                                                        } else {
-                                                            echo '<a class="btn btn-sm btn-success shadow text-light">Active</a>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="edit_result?studentId=<?= $student['id']; ?>" class="btn btn-sm btn-info text-light shadow">Edit</a>
-                                                        <a href="delete?studentId=<?= $student['id']; ?>" class="btn btn-sm btn-danger text-light shadow">Delete</a>
-                                                    </td>
-                                                </tr>
+                                                    <td><?= $subject['subject_name']; ?></td>
+                                                    <td><?= $first_test_score; ?></td>
+                                                    <td><?= $second_test_score; ?></td>
+                                                    <td><?= $exam_score; ?></td>
+                                                    <td><?= $grand_total; ?></td>
+                                                    <td class="font-weight-bold"><?= $grade_subject; ?></td>
 
                                 <?php }
                                         }
-                                    }
-                                } ?>
+                                    } ?>
                             </tbody>
                         </table>
 

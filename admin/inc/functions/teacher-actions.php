@@ -31,7 +31,7 @@ function teacherLogin($post)
 
     //The Sql Statement...
     if (!$errors) {
-        $sql = "SELECT * FROM teachers WHERE email = '$mail'";
+        $sql = "SELECT * FROM teachers WHERE email = '$mail' AND access = 1";
         $result = executeQuery($sql);
         if ($result) {
             $encryptedpassword = $result['t_password'];

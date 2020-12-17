@@ -70,7 +70,7 @@ function cardLogin($post) {
         $row = executeQuery($sql);
 
         if ($username === $row['username']) {
-            $sql2 = "SELECT * FROM student_cards WHERE card_pin = '$pin'";
+            $sql2 = "SELECT * FROM student_cards WHERE card_pin = '$pin' AND student_id_fk = $student_id";
             $row2 = executeQuery($sql2);
 
             if ($row2) {

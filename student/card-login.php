@@ -10,10 +10,11 @@ if (isset($_POST['submit'])) {
     if ($result === true) {
         redirect_to('view-result');
     } else {
-        if (is_array($result)) {
-            $error = $result;
+        $error = $result;
+        if (is_array($error)) {
             foreach ($error as $err) {
                 echo "<script>alert('$err')</script>";
+                redirect_to('card-login');
             }
         } else {
             echo "<script>alert('$result')</script>";
