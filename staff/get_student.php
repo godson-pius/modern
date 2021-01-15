@@ -41,6 +41,8 @@ if (!empty($_GET["sectionid"])) {
     }
 }
 
+// Editing result
+
 if (!empty($_GET['subject_id']) && !empty($_GET['student_id']) && !empty($_GET['firstTest']) && !empty($_GET['secondTest']) && !empty($_GET['examScore']) && !empty($_GET['grandTotal']) && !empty($_GET['gradeSubject'])) {
     
     $subject_id = $_GET['subject_id'];

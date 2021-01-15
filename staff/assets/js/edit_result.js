@@ -90,11 +90,13 @@ function editResult(element) {
     subject_id = element.dataset.id;
     student_id = element.dataset.stud;
 
-    firstTest = document.getElementById('firstScore').innerHTML;
-    secondTest = document.getElementById('secondScore').innerHTML;
-    examScore = document.getElementById('examScore').innerHTML;
-    grandTotal = document.getElementById('grandTotal').innerHTML;
-    gradeSubject = document.getElementById('gradeSubject').innerHTML;
+    let main_parent = element.parentNode.parentNode;
+
+    firstTest = main_parent.children[1].innerHTML;
+    secondTest = main_parent.children[2].innerHTML;
+    examScore = main_parent.children[3].innerHTML;
+    grandTotal = main_parent.children[4].innerHTML;
+    gradeSubject = main_parent.children[5].innerHTML;
 
     fetch(`get_student.php?subject_id=${subject_id}&student_id=${student_id}&firstTest=${firstTest}&secondTest=${secondTest}&examScore=${examScore}&grandTotal=${grandTotal}&gradeSubject=${gradeSubject}`).then(e => e).then(e => e.text()).then(e => {
         if (e) {

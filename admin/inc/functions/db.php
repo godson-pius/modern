@@ -142,6 +142,22 @@ function where($table, $where, $whereValue, $limit = null) {
     }
 }
 
+function viewSelectedResult($table, $where, $whereValue, $acad, $term, $limit = null)
+{
+    if (!is_null($limit)) {
+        $sql = "SELECT * FROM $table WHERE $where = $whereValue LIMIT $limit";
+    } else {
+        $sql = "SELECT * FROM $table WHERE $where = $whereValue AND academic_year_fk = $acad AND term = $term";
+    }
+    $result = returnQuery($sql);
+
+    if ($result) {
+        return $result;
+    } else {
+        return false;
+    }
+}
+
 function whereQuote($table, $where, $whereValue, $limit = null) {
     if (!is_null($limit)) {
         $sql = "SELECT * FROM $table WHERE $where = $whereValue LIMIT $limit";
@@ -177,6 +193,15 @@ function getTotal($table, $optional = null, $optionValue = null) {
 function blockUrlHackers($user, $url) {
     if (!isset($_SESSION[$user])) {
         redirect_to("$url");
+    }
+}
+
+function checkResultStatus($student_id, $cardPin) {
+    $sql = "SELECT * FROM student_cards WHERE student_id_fk = $student_id AND valid = 1 AND card_pin = $cardPin";
+    $row = returnQuery($sql);
+
+    if (mysqli_num_rows($row) > 0) {
+        redirect_to("view-result");
     }
 }
 
@@ -234,9 +259,9 @@ function check_duplicate($table, $field, $sanitized_value)
     }return false;
 }
 
-function check_multiple_result_upload($table, $field, $sanitized_value, $field2, $sanitized_value2)
+function check_multiple_result_upload($table, $field, $sanitized_value, $field2, $sanitized_value2, $field3, $sanitized_value3, $field4, $sanitized_value4)
 {
-    $sql = "SELECT * FROM $table WHERE $field = $sanitized_value AND $field2 = $sanitized_value2";
+    $sql = "SELECT * FROM $table WHERE $field = $sanitized_value AND $field2 = $sanitized_value2 AND $field3 = $sanitized_value3 AND $field4 = $sanitized_value4";
     $result = executeQuery($sql);
 
     if ($result) {

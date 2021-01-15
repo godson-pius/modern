@@ -76,26 +76,32 @@ if (isset($_GET['studentId'])) {
                                             $stud_id = $id;
                                             $results = where("results", "student_id_fk", $stud_id);
                                             if (!empty($results)) {
+
+                                                $num = 0;
+
                                                 foreach ($results as $result) {
                                                     extract($result);
                                                     $subj_id = $subject_id_fk;
                                                     $subjects = where("subjects", "id", $subj_id);
+
                                                     foreach ($subjects as $subject) { ?>
 
                                                         <tr class="font-weight-bold">
-                                                            <td class="pt-3-half" name="subject" id="subject" contenteditable="true"><?= $subject['subject_name']; ?></td>
-                                                            <td class="pt-3-half" name="firstScore" id="firstScore" contenteditable="true"><?= $first_test_score; ?></td>
-                                                            <td class="pt-3-half" name="secondScore" id="secondScore" contenteditable="true"><?= $second_test_score; ?></td>
+                                                            <td class="pt-3-half" name="subject" id="subject<?= $num; ?>" contenteditable="true"><?= $subject['subject_name']; ?></td>
+                                                            <td class="pt-3-half" name="firstScore" id="firstScore<?= $num; ?>" contenteditable="true"><?= $first_test_score; ?></td>
+                                                            <td class="pt-3-half" name="secondScore" id="secondScore<?= $num; ?>" contenteditable="true"><?= $second_test_score; ?></td>
 
-                                                            <td class="pt-3-half" name="examScore" id="examScore" contenteditable="true"><?= $exam_score; ?></td>
-                                                            <td class="pt-3-half" name="grandTotal" id="grandTotal" contenteditable="true"><?= $grand_total; ?></td>
-                                                            <td class="pt-3-half" name="gradeSubject" id="gradeSubject" contenteditable="true"><?= $grade_subject; ?></td>
+                                                            <td class="pt-3-half" name="examScore" id="examScore<?= $num; ?>" contenteditable="true"><?= $exam_score; ?></td>
+                                                            <td class="pt-3-half" name="grandTotal" id="grandTotal<?= $num; ?>" contenteditable="true"><?= $grand_total; ?></td>
+                                                            <td class="pt-3-half" name="gradeSubject" id="gradeSubject<?= $num; ?>" contenteditable="true"><?= $grade_subject; ?></td>
                                                             <td>
                                                                 <a data-id="<?= $subject['id']; ?>" data-stud="<?= $stud_id; ?>" onclick="editResult(this)" class="btn btn-secondary text-light btn-sm rounded">Save</a>
                                                             </td>
                                                         </tr>
 
-                                            <?php }
+                                            <?php
+                                        
+                                                    }
                                                 }
                                             } ?>
                                         </tbody>

@@ -94,8 +94,8 @@
                             </ul>
                         </div><!-- /.navbar-collapse -->
                         <div class="right-side-box">
-                            <a class="header__search-btn search-popup__toggler" href="#"><i class="kipso-icon-magnifying-glass"></i>
-                                <!-- /.kipso-icon-magnifying-glass --></a>
+<!--                            <a class="header__search-btn search-popup__toggler" href="#"><i class="kipso-icon-magnifying-glass"></i>
+                                 /.kipso-icon-magnifying-glass </a>-->
                         </div><!-- /.right-side-box -->
                     </div>
                     <!-- /.container -->

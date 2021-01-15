@@ -3,6 +3,11 @@
 require_once '../admin/inc/functions/config.php';
 blockUrlHackers('studentId', 'login');
 
+// if (isset($_SESSION['studentId'])) {
+//     $studentId = $_SESSION['studentId'];
+// }
+// checkResultStatus($studentId, $_POST['pin']);
+
 if (isset($_POST['submit'])) {
 
     $result = cardLogin($_POST);
@@ -14,7 +19,7 @@ if (isset($_POST['submit'])) {
         if (is_array($error)) {
             foreach ($error as $err) {
                 echo "<script>alert('$err')</script>";
-                redirect_to('card-login');
+                // redirect_to('card-login');
             }
         } else {
             echo "<script>alert('$result')</script>";

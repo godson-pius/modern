@@ -70,12 +70,42 @@ function cardLogin($post) {
         $row = executeQuery($sql);
 
         if ($username === $row['username']) {
-            $sql2 = "SELECT * FROM student_cards WHERE card_pin = '$pin' AND student_id_fk = $student_id";
+            $sql2 = "SELECT * FROM student_cards WHERE card_pin = '$pin'";
             $row2 = executeQuery($sql2);
 
             if ($row2) {
-                $_SESSION['cardSet'] = $row2['card_pin'];
-                return true;
+                $stusentIdFromDb = $row2['student_id_fk'];
+                $validStatus = $row2['valid'];
+
+                // echo "<pre>";
+                // print_r($row2);
+                // echo "<br>student-id: $student_id";
+                // echo "<br>valid status: $validStatus";
+
+                // die();
+
+                if ($stusentIdFromDb == $student_id && $validStatus == 1) {
+                    $_SESSION['cardSet'] = $row2['card_pin'];
+                    return true;
+                } else {
+
+                    if(empty($validStatus)){
+                        $changeToInvalid = "UPDATE student_cards SET student_id_fk = '$student_id', valid = '1' WHERE card_pin = '$pin'";
+                        $invalidQuery = validateQuery($changeToInvalid);
+
+                        if ($invalidQuery) {
+                            $_SESSION['cardSet'] = $row2['card_pin'];
+                            return true;
+                        } else {
+                            $invalid = "Invalid card details";
+                            return $invalid;
+                        }
+                    }else{
+                        $invalid = "This card does not belong to you! Please check for your card";
+                        return $invalid;
+                    }
+
+                }
             } else {
                 $invalid = "Invalid card details";
                 return $invalid;

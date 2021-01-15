@@ -49,6 +49,7 @@ if (isset($_SESSION['teacherId'])) {
 
                                 <?php
                                 $results = where("results", "teacher_id_fk", $active_teacher_id);
+                            
                                 if (!empty($results)) {
                                     foreach ($results as $result) {
                                         extract($result);

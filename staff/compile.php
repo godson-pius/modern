@@ -1,20 +1,26 @@
 <?php
 // error_reporting(0);
 require_once '../admin/inc/functions/config.php';
+blockUrlHackers('teacherId', 'login');
 
 if (isset($_POST['submit'])) {
 
-    $result = uploadResult($_POST);
+    $getCurrentAcadYear = where("academic_years", "active", 1);
+    foreach ($getCurrentAcadYear as $years) {
+        extract($years);
 
-    if ($result === true) {
-        echo "success";
-    } else {
-        $err = $result;
-        foreach ($err as $e) {
-            echo $e;
+        $result = uploadResult($_POST, $id);
+
+        if ($result === true) {
+            echo "success";
+        } else {
+            $err = $result;
+            foreach ($err as $e) {
+                echo $e;
+            }
         }
+        die();
     }
-    die();
 }
 ?>
 
@@ -126,7 +132,13 @@ if (isset($_POST['submit'])) {
 
                                         <div class="form-row">
                                             <div class="col-12 col-md-6 mb-3">
-                                                <label for="acadYear">Academic Year</label>
+                                                <label for="term">Select Term</label>
+                                                <select id="term" data-toggle="select" name="term" class="form-control">
+                                                    <option value="1">First Term</option>
+                                                    <option value="2">Second Term</option>
+                                                    <option value="3">Third Term</option>
+                                                </select>
+                                                <!-- <label for="acadYear">Academic Year</label>
                                                 <select name="acadYear" class="form-control" id="acadYear">
                                                     <option disabled selected value="">Select Academic Year</option>
                                                     <?php
@@ -139,7 +151,7 @@ if (isset($_POST['submit'])) {
 
                                                     <?php }
                                                     } ?>
-                                                </select>
+                                                </select> -->
                                             </div>
                                             <div class="col-12 col-md-6 mb-3">
                                                 <label for="subjectGrade">Subject Grade</label>

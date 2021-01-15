@@ -4,10 +4,22 @@ require_once '../admin/inc/functions/config.php';
 blockUrlHackers('studentId', 'login');
 blockUrlHackers('cardSet', 'card-login');
 
+if (isset($_POST['submit'])) {
+    if (!empty($_POST['acadYear']) && !empty($_POST['term'])) {
+
+        $academic_year = $_POST['acadYear'];
+        $term = $_POST['term'];
+
+        redirect_to("student-result?acad=$academic_year&term=$term");
+    } else {
+        echo "<script>alert('Please fill in the required field')</script>";
+    }
+}
+
 ?>
 
 <?php
-$pageHeader = "Student Result";
+$pageHeader = "Select Result";
 require_once 'inc/header.php'; ?>
 
 <!-- Header Layout Content -->
@@ -30,47 +42,56 @@ require_once 'inc/header.php'; ?>
 
 
 
-            <div class="container-fluid">
+            <div class="container-fluid page__container">
 
 
                 <div class="row">
 
-                    <div class="col-lg-12">
-                        <table class="table table-light table-responsive-sm table-responsive-md shadow">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Subject</th>
-                                    <th>1<sup>st</sup> Test</th>
-                                    <th>2<sup>nd</sup> Test</th>
-                                    <th>Examination</th>
-                                    <th>Total Mark</th>
-                                    <th>Grade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
-                                <?php
-                                $results = where("results", "student_id_fk", $details['id']);
-                                if (!empty($results)) {
-                                    foreach ($results as $result) {
-                                        extract($result);
-                                        $subjects = where("subjects", "id", $subject_id_fk);
-                                        foreach ($subjects as $subject) { ?>
+                    <div class="card card-form">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4 card-body">
+                                <p><strong class="headings-color">Select Result</strong></p>
+                                <p class="text-muted">Please kindly select the <strong>academic year</strong> and <strong> term</strong> of result you wish to view. <br> And our portal will provide it for you.</p>
+                            </div>
+                            <div class="col-lg-8 card-form__body card-body">
+                                <form action="" method="post">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label for="acadYear">Select Year</label>
+                                            <select name="acadYear" class="form-control" id="acadYear">
+                                                <option disabled selected value="">Select Academic Year</option>
+                                                <?php
+                                                $acadYears = fetchAll("academic_years");
+                                                if (!empty($acadYears)) {
+                                                    foreach ($acadYears as $acad) {
+                                                        extract($acad); ?>
 
-                                                <tr>
-                                                    <td><?= $subject['subject_name']; ?></td>
-                                                    <td><?= $first_test_score; ?></td>
-                                                    <td><?= $second_test_score; ?></td>
-                                                    <td><?= $exam_score; ?></td>
-                                                    <td><?= $grand_total; ?></td>
-                                                    <td class="font-weight-bold"><?= $grade_subject; ?></td>
+                                                        <option value="<?= $id; ?>"><?= $academic_year; ?></option>
 
-                                <?php }
-                                        }
-                                    } ?>
-                            </tbody>
-                        </table>
+                                                <?php }
+                                                } ?>
+                                            </select>
+                                        </div>
 
+                                        <div class="form-row">
+                                            <div class="col-12 col-md-12 mb-3">
+                                                <label for="term">Select Term</label>
+                                                <select id="term" data-toggle="select" name="term" class="form-control">
+                                                    <option disabled selected value="">Select Term</option>
+                                                    <option value="1">First Term</option>
+                                                    <option value="2">Second Term</option>
+                                                    <option value="3">Third Term</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary" name="submit" type="submit">View Result</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
 

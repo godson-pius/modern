@@ -168,7 +168,7 @@ function RegisterTeacher($post)
 }
 
 // This is for uploading students results..
-function uploadResult($post)
+function uploadResult($post, $acadYear)
 {
     extract($post);
     $errors = [];
@@ -215,10 +215,16 @@ function uploadResult($post)
         $errors[] = "Grand Total score is empty";
     }
     
-    if (!empty($acadYear)) {
-        $acadYear = sanitize($acadYear);
+    // if (!empty($acadYear)) {
+    //     $acadYear = sanitize($acadYear);
+    // } else {
+    //     $errors[] = "Academic Year is empty";
+    // }
+
+    if (!empty($term)) {
+        $term = sanitize($term);
     } else {
-        $errors[] = "Academic Year is empty";
+        $errors[] = "Term is empty";
     }
     
     if (!empty($subjectGrade)) {
@@ -227,7 +233,7 @@ function uploadResult($post)
         $errors[] = "Subject Grade is empty";
     }
 
-    if (check_multiple_result_upload("results", "student_id_fk", $student, "subject_id_fk", $subject)) {
+    if (check_multiple_result_upload("results", "student_id_fk", $student, "subject_id_fk", $subject, "academic_year_fk", $acadYear, "term", $term)) {
         $errors[] = "Subject Already recorded for this student";
     }
 
@@ -236,7 +242,7 @@ function uploadResult($post)
     }
 
     if (!$errors) {
-        $stmt = "INSERT INTO results (student_id_fk, subject_id_fk, teacher_id_fk, first_test_score, second_test_score, exam_score, grand_total, grade_subject, academic_year_fk, date_entered) VALUES ('$student', '$subject', '$teacher_id', '$firstTest', '$secondTest', '$examScore', '$grandTotal', '$subjectGrade', '$acadYear', now())";
+        $stmt = "INSERT INTO results (student_id_fk, subject_id_fk, teacher_id_fk, first_test_score, second_test_score, exam_score, grand_total, grade_subject, academic_year_fk, term,  date_entered) VALUES ('$student', '$subject', '$teacher_id', '$firstTest', '$secondTest', '$examScore', '$grandTotal', '$subjectGrade', '$acadYear', '$term', now())";
 
         $query = validateQuery($stmt);
 
