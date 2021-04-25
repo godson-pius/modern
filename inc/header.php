@@ -34,8 +34,8 @@
             <div class="topbar-one">
                 <div class="container">
                     <div class="topbar-one__left">
-                        <a href="#">hello@modernschools.com.ng</a>
-                        <a href="#">+234 899 9098 909</a>
+                        <a href="mailto:hello@modernschools.com.ng">hello@modernschools.com.ng</a>
+                        <a href="tel:+2348999098909">+234 899 9098 909</a>
                     </div><!-- /.topbar-one__left -->
                     <!-- <div class="topbar-one__right">
                         <a href="#">Login</a>
